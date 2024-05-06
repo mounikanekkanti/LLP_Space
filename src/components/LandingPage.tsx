@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import ShareFeedback from "./ShareFeedback";
 import SearchInput from "../common/SearchInput";
 import PageButton from "../common/Button";
+import RecentActivityTable from "./RecentActivityTable";
+
 const LandingPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -337,7 +339,45 @@ const LandingPage: React.FC = () => {
             />
           </div>
           <div className="div-99" />
-          <div
+<div className="div-100">
+
+{/* <DataGridComponent/> */}
+<RecentActivityTable/>
+
+            {/* <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Contract ID(#)</TableCell>
+            <TableCell align="right">Document</TableCell>
+            <TableCell align="right">Upload Date</TableCell>
+            <TableCell align="right">Uploaded By</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          
+            <TableRow>
+              <TableCell scope="row">1234</TableCell>
+              <TableCell align="right">Lorem</TableCell>
+              <TableCell align="right">USA</TableCell>
+              <TableCell align="right">Ipsum</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell scope="row">4567</TableCell>
+              <TableCell align="right">Lorem</TableCell>
+              <TableCell align="right">USA</TableCell>
+              <TableCell align="right">Ipsum</TableCell>
+            </TableRow>
+          
+        </TableBody>
+      </Table>
+    </TableContainer> */}
+</div>
+          
+
+          {/* <div
             className="div-100"
             style={{ cursor: "pointer" }}
             onClick={handleClick}
@@ -404,7 +444,7 @@ const LandingPage: React.FC = () => {
                 <div className="div-137">1</div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="feedback" onClick={handleClick2}>
             <PageButton buttonType="primary">Feedback</PageButton>
           </div>
