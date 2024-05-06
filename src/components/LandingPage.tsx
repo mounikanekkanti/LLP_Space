@@ -40,7 +40,7 @@ const newHeadCells: HeadCell[] = [
     id: 'id',
     numeric: false,
     disablePadding: false,
-    label: 'ID',
+    label: 'Contract ID(#)',
   },
   {
     id: 'document',
@@ -1144,8 +1144,9 @@ const LandingPage: React.FC = () => {
         .div-59 {
           color: #000;
           gap: 0px;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 24px;
+          font-weight: 700;
           text-align: left;
         }
         @media (max-width: 991px) {
@@ -1210,8 +1211,9 @@ const LandingPage: React.FC = () => {
         .div-64 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-65 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1253,8 +1255,9 @@ const LandingPage: React.FC = () => {
         .div-67 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-68 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1296,8 +1299,9 @@ const LandingPage: React.FC = () => {
         .div-70 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-71 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1350,8 +1354,9 @@ const LandingPage: React.FC = () => {
         .div-74 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-75 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1393,8 +1398,9 @@ const LandingPage: React.FC = () => {
         .div-77 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-78 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1436,8 +1442,9 @@ const LandingPage: React.FC = () => {
         .div-80 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-81 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1490,8 +1497,9 @@ const LandingPage: React.FC = () => {
         .div-84 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-85 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1533,8 +1541,9 @@ const LandingPage: React.FC = () => {
         .div-87 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-88 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1576,8 +1585,9 @@ const LandingPage: React.FC = () => {
         .div-90 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-91 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1603,8 +1613,9 @@ const LandingPage: React.FC = () => {
           color: #000;
           margin-top: 31px;
           gap: 0px;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 24px;
+          font-weight: 700;
           width: 1440px;
         }
         @media (max-width: 991px) {
@@ -1618,11 +1629,10 @@ const LandingPage: React.FC = () => {
           border-style: solid;
           border-width: 1px;
           background-color: #d9d9d9;
-          width: 1482px;
           max-width: 100%;
           height: 0px;
           gap: 0px;
-          margin: 24px 0 0 14px;
+          margin: 24px 0 0 0;
           width: 1440px;
         }
         @media (max-width: 991px) {
@@ -1635,11 +1645,10 @@ const LandingPage: React.FC = () => {
           border-style: solid;
           border-width: 2px;
           background-color: #000;
-          width: 1482px;
           max-width: 100%;
           height: 0px;
           gap: 0px;
-          margin: 38px 0 0 14px;
+          margin: 38px 0 0 0;
           width: 1440px;
         }
         @media (max-width: 991px) {
@@ -1741,11 +1750,11 @@ const LandingPage: React.FC = () => {
           border-style: solid;
           border-width: 1px;
           background-color: #a7a7a7;
-          width: 1482px;
+          width: 1440px;
           max-width: 100%;
           height: 0px;
           gap: 0px;
-          margin: 7px 0 0 13px;
+          margin: 7px 0 0 0;
         }
         @media (max-width: 991px) {
           .div-99 {
@@ -1753,11 +1762,10 @@ const LandingPage: React.FC = () => {
           }
         }
         .div-100 {
-          align-self: center;
           display: flex;
           margin-top: 24px;
           width: 100%;
-          max-width: 1419px;
+          max-width: 1440px;
           gap: 20px;
           font-size: 14px;
           color: #000;

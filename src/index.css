@@ -15,4 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.MuiTableSortLabel-root {
+  font-family: "VerizonNHGDS-Bold";
+    font-weight: 700;
+}
 
