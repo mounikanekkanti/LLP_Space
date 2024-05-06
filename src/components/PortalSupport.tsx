@@ -1,25 +1,27 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-
+import SearchInput from "../common/SearchInput";
+import AccordionComponent from "../common/Accordion";
+import PageButton from "../common/Button";
 
 export default function PortalSupport() {
   const navigate = useNavigate();
-  const handleLease=()=>{
+  const handleLease = () => {
     navigate("/leasedocument");
-  }
- 
-  const handlePortal=()=>{
-    navigate('/portalsupport')
-  }
-  const handlePayment=()=>{
-    navigate('/paymentinformation')
-  }
-  const handleDocument=()=>{
-    navigate('/documentcenter')
-  }
-  const handleHome=()=>{
-    navigate('/')
-  }
+  };
+
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="div">
@@ -36,137 +38,124 @@ export default function PortalSupport() {
           </div>
         </div>
         <div className="div-07">
-        <div className="div-08">
-          <div className="div-09">
-            <div className="div-010"  style={{cursor:"pointer"}} onClick={handleHome}>Home</div>
-            <div className="div-011">Submit a Bill </div>
-            <div className="div-012" style={{cursor:"pointer"}} onClick={handleDocument}>Document Center</div>
-            <div className="div-013">Request Liability Certificate</div>
-            <div className="div-014" style={{cursor:"pointer"}} onClick={handlePortal}>Portal Support</div>
-            <div className="div-015" style={{cursor:"pointer"}} onClick={handlePayment}>Payment Information</div>
-          </div>
-          <div className="div-016">
-            <div className="div-017">
-              <div className="div-018">
-                <div className="div-019">Search</div>
-                <div className="div-020">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-02"
-                  />
-                  <div className="div-021" />
-                </div>
+          <div className="div-08">
+            <div className="div-09">
+              <div
+                className="div-010"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
+              </div>
+              <div className="div-011">Submit a Bill </div>
+              <div
+                className="div-012"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
+              <div className="div-013">Request Liability Certificate</div>
+              <div
+                className="div-014"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-015"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
               </div>
             </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-03"
-            />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/81fe85ea734e845547329ffcf0a060431beb6606c79049eafc748d9c54c90dbb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-04"
-            />
+            <div className="div-016">
+              <SearchInput placeholder="Search"></SearchInput>
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                className="img-03"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/81fe85ea734e845547329ffcf0a060431beb6606c79049eafc748d9c54c90dbb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                className="img-04"
+              />
+            </div>
           </div>
         </div>
-      </div>
         <div className="div-8">
-          <span style={{fontWeight:400}}>Home / </span>
-          <span style={{fontWeight:700,fontFamily: "VerizonNHGDS-Bold"}}>Portal Support</span>
+          <span style={{ fontWeight: 400 }}>Home / </span>
+          <span style={{ fontWeight: 700, fontFamily: "VerizonNHGDS-Bold" }}>
+            Portal Support
+          </span>
         </div>
         <div className="div-9">
           <div className="div-10">
             <div className="div-11">
               <div className="div-12">
                 <div className="div-13">Search</div>
-                <div className="div-14">
-                  <div className="div-15">
-                    <div className="div-16">What are you looking today?</div>
-                    <div className="div-17">
+                <SearchInput placeholder="What are you looking today?"></SearchInput>
+              </div>
+            </div>
+            <div className="div-19">
+            <PageButton buttonType="primary">Search</PageButton>
+            </div>
+          </div>
+        </div>
+        <div className="portal-container">
+          <div className="portal-accordion">
+          <AccordionComponent title="Categories" defaultExpanded={true}>
+            <div className="div-22">
+              <div className="div-28">
+                <div className="div-29">
+                  <div className="div-30">
+                    <div className="div-31">Tax Bills</div>
+                    <div className="div-32">2 Articles</div>
+                  </div>
+                  <div className="div-33">
+                    <div className="div-34">
                       <img
                         loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                        className="img-3"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/808431bac7b4e05add2a8803061356aec803de08de6258d18c952bbda88a453d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-5"
                       />
-                      <div className="div-18" />
+                    </div>
+                  </div>
+                </div>
+                <div className="div-35">
+                  <div className="div-36">
+                    <div className="div-37">Utility Bills</div>
+                    <div className="div-38">3 Articles</div>
+                  </div>
+                  <div className="div-39">
+                    <div className="div-40">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/4823b0ad5142bd296c44896a1108a712501c10cc4a0882ca5a3254b43568e304?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-6"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="div-41">
+                  <div className="div-42">
+                    <div className="div-43">Notices</div>
+                    <div className="div-44">5 Articles</div>
+                  </div>
+                  <div className="div-45">
+                    <div className="div-46">
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/60babce55d5e40f77c88425e34cc9077b3999e4ebe587ad013d8faf0439bdccd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-7"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="div-19">
-              <div className="div-20">
-                <div className="div-21">Search</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="div-22">
-          <div className="div-23">
-            <div className="div-24">
-              <div className="div-25">
-                <div className="div-26">Categories</div>
-                <div className="div-27">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/956ec279cafd5f16849a8866d06146b3197876a493135da6abcc1a0f8db69519?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-4"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="div-28">
-            <div className="div-29">
-              <div className="div-30">
-                <div className="div-31">Tax Bills</div>
-                <div className="div-32">2 Articles</div>
-              </div>
-              <div className="div-33">
-                <div className="div-34">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/808431bac7b4e05add2a8803061356aec803de08de6258d18c952bbda88a453d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-5"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="div-35">
-              <div className="div-36">
-                <div className="div-37">Utility Bills</div>
-                <div className="div-38">3 Articles</div>
-              </div>
-              <div className="div-39">
-                <div className="div-40">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4823b0ad5142bd296c44896a1108a712501c10cc4a0882ca5a3254b43568e304?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-6"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="div-41">
-              <div className="div-42">
-                <div className="div-43">Notices</div>
-                <div className="div-44">5 Articles</div>
-              </div>
-              <div className="div-45">
-                <div className="div-46">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/60babce55d5e40f77c88425e34cc9077b3999e4ebe587ad013d8faf0439bdccd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-7"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="div-47">
-            <div className="div-48">
               <div className="div-49">
                 <div className="div-50">
                   <div className="div-51">
@@ -246,40 +235,18 @@ export default function PortalSupport() {
                   </div>
                 </div>
               </div>
-              <div className="div-81">
-                <div className="div-82">
-                  <div className="div-83">
-                    <div className="div-84">Frequently Asked Questions</div>
-                    <div className="div-85">
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c3a9811b6d13f9fa0e89efda8fe8bb29946884e095a8cae07733662f83ee10e1?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                        className="img-13"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="div-86">
-                <div className="div-87">
-                  <div className="div-88">
-                    <div className="div-89">Useful Links</div>
-                    <div className="div-90">
-                      <img
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c3a9811b6d13f9fa0e89efda8fe8bb29946884e095a8cae07733662f83ee10e1?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                        className="img-14"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/addab50ec1716c904fe68ec1b2a4a28790b9677903a65bf9e51f6997901189d7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-15"
-            />
+          </AccordionComponent>
+          </div>
+          <div className="portal-accordion">
+          <AccordionComponent title="Frequently Asked Questions">
+            Frequently Asked Questions Content
+          </AccordionComponent>
+          </div>
+          <div className="portal-accordion">
+          <AccordionComponent title="Useful Links">
+            Useful Links Content
+          </AccordionComponent>
           </div>
         </div>
         <div className="div-91">
@@ -588,7 +555,6 @@ export default function PortalSupport() {
           flex-direction: column;
           align-items: start;
           gap: 20px;
-          margin-left: 50px;
         }
         @media (max-width: 991px) {
           .div-22 {
@@ -598,7 +564,7 @@ export default function PortalSupport() {
         }
         .div-23 {
           display: flex;
-          width: 871px;
+          width: 100%;
           max-width: 100%;
           flex-direction: column;
           gap: 0px;
@@ -665,7 +631,7 @@ export default function PortalSupport() {
         .div-28 {
           display: flex;
           gap: 20px;
-          width: 870px;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-28 {
@@ -696,10 +662,11 @@ export default function PortalSupport() {
           color: var(--vds-elements-text-icons-borders-primary-onlight, #000);
         }
         .div-31 {
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
         }
         .div-32 {
           font-feature-settings: "clig" off, "liga" off;
@@ -761,8 +728,9 @@ export default function PortalSupport() {
         .div-37 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-38 {
           font-feature-settings: "clig" off, "liga" off;
@@ -824,8 +792,9 @@ export default function PortalSupport() {
         .div-43 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-44 {
           font-feature-settings: "clig" off, "liga" off;
@@ -867,6 +836,7 @@ export default function PortalSupport() {
           margin-top: 24px;
           gap: 20px;
           justify-content: space-between;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-47 {
@@ -878,7 +848,7 @@ export default function PortalSupport() {
           display: flex;
           flex-direction: column;
           gap: 0px;
-          width: 870px;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-48 {
@@ -889,6 +859,7 @@ export default function PortalSupport() {
         .div-49 {
           display: flex;
           gap: 20px;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-49 {
@@ -921,8 +892,9 @@ export default function PortalSupport() {
         .div-52 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-53 {
           font-feature-settings: "clig" off, "liga" off;
@@ -984,8 +956,9 @@ export default function PortalSupport() {
         .div-58 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-59 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1047,8 +1020,9 @@ export default function PortalSupport() {
         .div-64 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-65 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1088,6 +1062,7 @@ export default function PortalSupport() {
           display: flex;
           margin-top: 24px;
           gap: 20px;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-68 {
@@ -1122,8 +1097,9 @@ export default function PortalSupport() {
         .div-71 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-72 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1187,8 +1163,9 @@ export default function PortalSupport() {
         .div-77 {
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-size: 20px;
+          font-weight: 700;
         }
         .div-78 {
           font-feature-settings: "clig" off, "liga" off;
@@ -1568,9 +1545,19 @@ export default function PortalSupport() {
           gap: 0px;
           margin: auto 0;
         }
+        .portal-container {
+          align-self: center;
+          display: flex;
+          width: 100%;
+          max-width: 1440px;
+          flex-direction: column;
+          gap: 0px;
+          padding: 0 20px;
+        }
+        .portal-accordion {
+          padding-bottom: 24px;
+        }
       `}</style>
     </>
   );
 }
-
-

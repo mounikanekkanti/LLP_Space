@@ -2,6 +2,10 @@ import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 
+interface SearchInputProps {
+  placeholder: string;
+}
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -18,7 +22,7 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 
-const SearchInput: React.FC = () => {
+const SearchInput: React.FC<SearchInputProps> = ({ placeholder }) => {
   const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleSearchChange = (value: string) => {
@@ -31,7 +35,7 @@ const SearchInput: React.FC = () => {
         <div className="search-textfield">
           <TextField
             className="textfield"
-            placeholder="Search…"
+            placeholder={placeholder}
             variant="standard"
             inputProps={{ "aria-label": "search" }}
             value={searchTerm}
@@ -56,6 +60,10 @@ const SearchInput: React.FC = () => {
         flex-direction: column;
         gap: 0px;
         justify-content: center;
+        border-radius: 4px;
+        border-color: rgba(111, 113, 113, 1);
+        border-style: solid;
+        border-width: 1px;
       }
       .search-textfield {
         justify-content: flex-end;
@@ -98,6 +106,9 @@ const SearchInput: React.FC = () => {
       }
       .css-1eed5fa-MuiInputBase-root-MuiInput-root::before {
         border-bottom: none !important;
+      }
+      input::placeholder {
+        color: #000 !important;
       }
     `}</style>
     </>

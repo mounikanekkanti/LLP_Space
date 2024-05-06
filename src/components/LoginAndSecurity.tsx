@@ -41,7 +41,7 @@ export default function LoginAndSecurity() {
               <div className="div-15">Payment Information</div>
             </div>
             <div className="div-16">
-            <SearchInput></SearchInput>
+            <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f4134542f3a372da03fcb26803131ed8dae2a18bde3b5f4f34321852eb44509?apiKey=a938513dc279413eaac5ce0f8c637f66&"

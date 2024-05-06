@@ -46,15 +46,21 @@ const AccordionComponent: React.FC<CustomAccordionProps> = ({
             font-size: 22px;
         }
         .MuiAccordion-root {
-            border-bottom:1px solid #dddfdf;
             box-shadow: none;
             width: 100%;
         }
         .MuiAccordionSummary-root {
             padding: 0;
+            border-bottom: 1px solid #dddfdf;
+        }
+        .MuiCollapse-wrapper {
+          padding-top: 16px;
         }
         .MuiAccordionDetails-root {
-            padding: 8px 16px 16px 0;
+            padding: 0;
+        }
+        .MuiAccordion-root::before {
+          background-color: transparent;
         }
      `}</style>
     </>

@@ -79,7 +79,7 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/transactiondetails" element={<TransactionDetails />} />
           <Route path="/transactionhistory" element={<TransactionHistory />} />
-          <Route path="/searchinput" element={<SearchInput />} />
+          <Route path="/searchinput" element={<SearchInput placeholder="Search"/>} />
           <Route
             path="/button"
             element={<PageButton buttonType="secondary">Feedback</PageButton>}

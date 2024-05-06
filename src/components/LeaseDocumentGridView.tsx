@@ -1,28 +1,31 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import AutoComplete from "../common/AutoComplete";
+import Breadcrumb from "../common/Breadcrumb";
+import SearchInput from "../common/SearchInput";
+import AccordionComponent from "../common/Accordion";
 
 export default function LeaseDocumentGridView() {
   const navigate = useNavigate();
 
-  const handleLeaseGrid=()=>{
+  const handleLeaseGrid = () => {
     navigate("/leasedocumentgridview");
-  }
-  const handleLeaseList=()=>{
+  };
+  const handleLeaseList = () => {
     navigate("/leasedocumentlistview");
-  }
-  const handlePortal=()=>{
-    navigate('/portalsupport')
-  }
-  const handlePayment=()=>{
-    navigate('/paymentinformation')
-  }
-  const handleDocument=()=>{
-    navigate('/documentcenter')
-  }
-  const handleHome=()=>{
-    navigate('/')
-  }
+  };
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
   const [selectedValue, setSelectedValue] = React.useState("");
   const options = [
     { value: "1", label: "201897465 - North Reese Avenue" },
@@ -33,6 +36,11 @@ export default function LeaseDocumentGridView() {
   const handleChange = (event: any) => {
     setSelectedValue(event.target.value);
   };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Document Center", href: "/documentcenter" },
+    { label: "Lease Documents" },
+  ];
   return (
     <>
       <div className="div">
@@ -50,28 +58,40 @@ export default function LeaseDocumentGridView() {
         </div>
         <div className="div-7">
           <div className="div-8">
-          <div className="div-9">
-          <div className="div-10" style={{cursor:"pointer"}} onClick={handleHome}>Home</div>
-          <div className="div-11">Submit a Bill </div>
-          <div className="div-12" style={{cursor:"pointer"}} onClick={handleDocument}>Document Center</div>
-          <div className="div-13">Request Liability Certificate</div>
-          <div className="div-14" style={{cursor:"pointer"}} onClick={handlePortal}>Portal Support</div>
-          <div className="div-15" style={{cursor:"pointer"}} onClick={handlePayment}>Payment Information</div>
-        </div>
-            <div className="div-16">
-              <div className="div-17">
-                <div className="div-18">
-                  <div className="div-19">Search</div>
-                  <div className="div-20">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-2"
-                    />
-                    <div className="div-21" />
-                  </div>
-                </div>
+            <div className="div-9">
+              <div
+                className="div-10"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
               </div>
+              <div className="div-11">Submit a Bill </div>
+              <div
+                className="div-12"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
+              <div className="div-13">Request Liability Certificate</div>
+              <div
+                className="div-14"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-15"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
+              </div>
+            </div>
+            <div className="div-16">
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -86,18 +106,14 @@ export default function LeaseDocumentGridView() {
           </div>
         </div>
         <div className="div-22">
-          <div className="div-23">
-            Home /
-            <span style={{paddingLeft:"5px"}}>Document Center /</span>
-            <span style={{ fontWeight: 700,paddingLeft:"5px",fontFamily: "VerizonNHGDS-Bold" }}>Lease Documents</span>
-          </div>
+          <Breadcrumb items={breadcrumbItems} />
           <div className="div-24">Lease Documents</div>
           <AutoComplete
-                options={options}
-                onChange={handleChange}
-                value={selectedValue}
-                label="Please select the Contract ID"
-              />
+            options={options}
+            onChange={handleChange}
+            value={selectedValue}
+            label="Please select the Contract ID"
+          />
           <div className="div-31">
             <div className="div-32">
               Contract ID: 201897465 - North Reese Avenue
@@ -106,178 +122,206 @@ export default function LeaseDocumentGridView() {
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/c80fe5ed092605637b90cf56874175fc5004c921b7f520945aa636df379eba10?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-6" style={{cursor:"pointer"}} onClick={handleLeaseGrid}
+                className="img-6"
+                style={{ cursor: "pointer" }}
+                onClick={handleLeaseGrid}
               />
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5180cacd29c09f08340af054f88d4b5a75dfc20f3c47ce4bfc58f3f14f0050a?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-7" style={{cursor:"pointer"}} onClick={handleLeaseList}
+                className="img-7"
+                style={{ cursor: "pointer" }}
+                onClick={handleLeaseList}
               />
             </div>
           </div>
           <div className="div-34" />
-          <div className="div-35">
-            <div className="div-36">Lease Agreements</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8fc6845db6073aaf6a2c0707f6d80fd25ab1ffa6d726a399424a3f3c415bfc27?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-8"
-            />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/82915d3f66220340dd71c77dace84d55cac98033828b22f8f70d46157de9670b?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+            className="img-17"
+          />
+          <div className="accordion-wrapper">
+            <AccordionComponent title="Lease Agreements" defaultExpanded={true}>
+              <div className="div-37">
+                <div className="div-38">
+                  <div className="div-39">
+                    <div className="div-43">2018895746</div>
+                    <div className="div-44">November 14, 2016</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1d0486ea93061517e6b626d27a828d210fa577cee93ab93658ca9853c4d1ba3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-9"
+                    />
+                    <div style={{ display: "inline", margin: "0 auto" }}>
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc8d7d45b85e4d46b2f472a0f3f61ad0c537d5758e6222351c4d1002fdae856c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-10"
+                      />
+                      <img
+                        className="img-10"
+                        style={{ height: "20px", width: "20px" }}
+                        src={"/images/Vector.png"}
+                      />
+                    </div>
+                  </div>
+                  <div className="div-42">
+                    <div className="div-43">2018895746</div>
+                    <div className="div-44">November 14, 2016</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b223fbaf79d886f3a4a3495cd5f4164621445d8c20e33dd899945fedf42f03cd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-11"
+                    />
+                    <div style={{ display: "inline", margin: "0 auto" }}>
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/0daff2ac3439184486b4a97f2d5954ab57770aeed8ecb4b4617bc4ffb4f3df35?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-12"
+                      />
+                      <img
+                        className="img-10"
+                        style={{ height: "20px", width: "20px" }}
+                        src={"/images/Vector.png"}
+                      />
+                    </div>
+                  </div>
+                  <div className="div-45">
+                    <div className="div-46">201897465</div>
+                    <div className="div-47">December 14, 2018</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3133a15253e45b2c69147e8d3c9d920ad3de7b08bcde7ba25cb4bce2435c927?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-13"
+                    />
+                    <div style={{ display: "inline", margin: "0 auto" }}>
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a255140fb85b8757d998750bd3ba92d8002add3014a8550850fb026842a9be2?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-14"
+                      />
+                      <img
+                        className="img-10"
+                        style={{ height: "20px", width: "20px" }}
+                        src={"/images/Vector.png"}
+                      />
+                    </div>
+                  </div>
+                  <div className="div-48">
+                    <div className="div-49">201897465</div>
+                    <div className="div-50">September 14, 2016</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2e1436e24da67c65995b66908b3ba40d31c3356aeed1c489da0813a5ccb7a05?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-15"
+                    />
+                    <div style={{ display: "inline", margin: "0 auto" }}>
+                      <img
+                        loading="lazy"
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4eb351d9115db67079d45f54b8ee1020b4d5fdff39d70438c6cc80af3b38d83?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                        className="img-16"
+                      />
+                      <img
+                        className="img-10"
+                        style={{ height: "20px", width: "20px" }}
+                        src={"/images/Vector.png"}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AccordionComponent>
           </div>
-          <div className="div-37">
-            <div className="div-38">
-              <div className="div-39">
-              <div className="div-43">2018895746</div>
-                <div className="div-44">November 14, 2016</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1d0486ea93061517e6b626d27a828d210fa577cee93ab93658ca9853c4d1ba3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-9"
-                />
-                <div style={{ display: "inline",margin:"0 auto" }}>
+          <div className="accordion-wrapper">
+            <AccordionComponent title="Lease Amendments" defaultExpanded={true}>
+              <div className="div-38">
+                <div className="div-42">
+                  <div className="div-40">201897465</div>
+                  <div className="div-41">September 14, 2016</div>
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc8d7d45b85e4d46b2f472a0f3f61ad0c537d5758e6222351c4d1002fdae856c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-10"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1d0486ea93061517e6b626d27a828d210fa577cee93ab93658ca9853c4d1ba3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                    className="img-9"
                   />
-                   <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
+                  <div style={{ display: "inline", margin: "0 auto" }}>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc8d7d45b85e4d46b2f472a0f3f61ad0c537d5758e6222351c4d1002fdae856c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-10"
+                    />
+                    <img
+                      className="img-10"
+                      style={{ height: "20px", width: "20px" }}
+                      src={"/images/Vector.png"}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="div-42">
-                <div className="div-43">2018895746</div>
-                <div className="div-44">November 14, 2016</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/b223fbaf79d886f3a4a3495cd5f4164621445d8c20e33dd899945fedf42f03cd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-11"
-                />
-                <div style={{ display: "inline",margin:"0 auto" }}>
+                <div className="div-42">
+                  <div className="div-43">2018895746</div>
+                  <div className="div-44">November 14, 2016</div>
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/0daff2ac3439184486b4a97f2d5954ab57770aeed8ecb4b4617bc4ffb4f3df35?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-12"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b223fbaf79d886f3a4a3495cd5f4164621445d8c20e33dd899945fedf42f03cd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                    className="img-11"
                   />
-                  <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
+                  <div style={{ display: "inline", margin: "0 auto" }}>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0daff2ac3439184486b4a97f2d5954ab57770aeed8ecb4b4617bc4ffb4f3df35?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-12"
+                    />
+                    <img
+                      className="img-10"
+                      style={{ height: "20px", width: "20px" }}
+                      src={"/images/Vector.png"}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="div-45">
-                <div className="div-46">201897465</div>
-                <div className="div-47">December 14, 2018</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3133a15253e45b2c69147e8d3c9d920ad3de7b08bcde7ba25cb4bce2435c927?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-13"
-                />
-                <div style={{ display: "inline",margin:"0 auto" }}>
+                <div className="div-45">
+                  <div className="div-46">201897465</div>
+                  <div className="div-47">December 14, 2018</div>
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a255140fb85b8757d998750bd3ba92d8002add3014a8550850fb026842a9be2?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-14"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3133a15253e45b2c69147e8d3c9d920ad3de7b08bcde7ba25cb4bce2435c927?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                    className="img-13"
                   />
-                  <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
+                  <div style={{ display: "inline", margin: "0 auto" }}>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a255140fb85b8757d998750bd3ba92d8002add3014a8550850fb026842a9be2?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-14"
+                    />
+                    <img
+                      className="img-10"
+                      style={{ height: "20px", width: "20px" }}
+                      src={"/images/Vector.png"}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="div-48">
-                <div className="div-49">201897465</div>
-                <div className="div-50">September 14, 2016</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2e1436e24da67c65995b66908b3ba40d31c3356aeed1c489da0813a5ccb7a05?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-15"
-                />
-                <div style={{ display: "inline",margin:"0 auto" }}>
+                <div className="div-48">
+                  <div className="div-49">201897465</div>
+                  <div className="div-50">September 14, 2016</div>
                   <img
                     loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4eb351d9115db67079d45f54b8ee1020b4d5fdff39d70438c6cc80af3b38d83?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-16"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2e1436e24da67c65995b66908b3ba40d31c3356aeed1c489da0813a5ccb7a05?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                    className="img-15"
                   />
-                  <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
+                  <div style={{ display: "inline", margin: "0 auto" }}>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4eb351d9115db67079d45f54b8ee1020b4d5fdff39d70438c6cc80af3b38d83?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-16"
+                    />
+                    <img
+                      className="img-10"
+                      style={{ height: "20px", width: "20px" }}
+                      src={"/images/Vector.png"}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/82915d3f66220340dd71c77dace84d55cac98033828b22f8f70d46157de9670b?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-17"
-            />
-          </div>
-          <div className="div-51">
-            <div className="div-52">Lease Amendments</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8fc6845db6073aaf6a2c0707f6d80fd25ab1ffa6d726a399424a3f3c415bfc27?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-18"
-            />
-          </div>
-          <div className="div-38">
-            <div className="div-42">
-              <div className="div-40">201897465</div>
-              <div className="div-41">September 14, 2016</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1d0486ea93061517e6b626d27a828d210fa577cee93ab93658ca9853c4d1ba3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-9"
-              />
-              <div style={{ display: "inline",margin:"0 auto" }}>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc8d7d45b85e4d46b2f472a0f3f61ad0c537d5758e6222351c4d1002fdae856c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-10"
-                />
-                <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
-              </div>
-            </div>
-            <div className="div-42">
-              <div className="div-43">2018895746</div>
-              <div className="div-44">November 14, 2016</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/b223fbaf79d886f3a4a3495cd5f4164621445d8c20e33dd899945fedf42f03cd?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-11"
-              />
-              <div style={{ display: "inline",margin:"0 auto" }}>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/0daff2ac3439184486b4a97f2d5954ab57770aeed8ecb4b4617bc4ffb4f3df35?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-12"
-                />
-                <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
-              </div>
-            </div>
-            <div className="div-45">
-              <div className="div-46">201897465</div>
-              <div className="div-47">December 14, 2018</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3133a15253e45b2c69147e8d3c9d920ad3de7b08bcde7ba25cb4bce2435c927?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-13"
-              />
-              <div style={{ display: "inline",margin:"0 auto" }}>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/2a255140fb85b8757d998750bd3ba92d8002add3014a8550850fb026842a9be2?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-14"
-                />
-                <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
-              </div>
-            </div>
-            <div className="div-48">
-              <div className="div-49">201897465</div>
-              <div className="div-50">September 14, 2016</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2e1436e24da67c65995b66908b3ba40d31c3356aeed1c489da0813a5ccb7a05?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-15"
-              />
-              <div style={{ display: "inline",margin:"0 auto" }}>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c4eb351d9115db67079d45f54b8ee1020b4d5fdff39d70438c6cc80af3b38d83?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-16"
-                />
-               <img className="img-10" style={{ height: "20px", width: "20px" }} src={"/images/Vector.png"} />
-              </div>
-            </div>
+            </AccordionComponent>
           </div>
         </div>
         <div className="div-66">
@@ -673,7 +717,7 @@ export default function LeaseDocumentGridView() {
           margin-top: 23px;
           height: 1px;
           gap: 0px;
-          width: 1165px;
+          width: 1170px;
         }
         @media (max-width: 991px) {
           .div-34 {
@@ -740,7 +784,6 @@ export default function LeaseDocumentGridView() {
           gap: 20px;
           justify-content: space-between;
           width: 1162px;
-          margin-top: 32px;
         }
         @media (max-width: 991px) {
           .div-38 {
@@ -931,6 +974,10 @@ export default function LeaseDocumentGridView() {
           width: 28px;
         }
         .img-17 {
+          position: fixed;
+          top: 80%;
+          right: 20px;
+          transform: translateY(-80%);
           aspect-ratio: 1.01;
           object-fit: auto;
           object-position: center;
@@ -938,7 +985,6 @@ export default function LeaseDocumentGridView() {
           gap: 0px;
           margin: auto 0;
           position: absolute;
-          right: 20px;
         }
         .div-51 {
             width:1152px;

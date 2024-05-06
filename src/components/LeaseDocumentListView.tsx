@@ -1,26 +1,45 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import SearchInput from "../common/SearchInput";
+import Breadcrumb from "../common/Breadcrumb";
+import AutoComplete from "../common/AutoComplete";
+import AccordionComponent from "../common/Accordion";
 
 export default function LeaseDocumentListView() {
-    const navigate = useNavigate();
-    const handleLeaseGrid=()=>{
-        navigate("/leasedocumentgridview");
-      }
-      const handleLeaseList=()=>{
-        navigate("/leasedocumentlistview");
-      }
-      const handlePortal=()=>{
-        navigate('/portalsupport')
-      }
-      const handlePayment=()=>{
-        navigate('/paymentinformation')
-      }
-      const handleDocument=()=>{
-        navigate('/documentcenter')
-      }
-      const handleHome=()=>{
-        navigate('/')
-      }
+  const navigate = useNavigate();
+  const handleLeaseGrid = () => {
+    navigate("/leasedocumentgridview");
+  };
+  const handleLeaseList = () => {
+    navigate("/leasedocumentlistview");
+  };
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Document Center", href: "/documentcenter" },
+    { label: "Lease Documents" },
+  ];
+  const [selectedValue, setSelectedValue] = React.useState("");
+  const options = [
+    { value: "1", label: "201897465 - North Reese Avenue" },
+    { value: "2", label: "301897465 - North Reese Avenue" },
+    { value: "3", label: "401897465 - North Reese Avenue" },
+  ];
+
+  const handleChange = (event: any) => {
+    setSelectedValue(event.target.value);
+  };
   return (
     <>
       <div className="div">
@@ -39,27 +58,39 @@ export default function LeaseDocumentListView() {
         <div className="div-7">
           <div className="div-8">
             <div className="div-9">
-              <div className="div-10" style={{cursor:"pointer"}} onClick={handleHome}>Home</div>
+              <div
+                className="div-10"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
+              </div>
               <div className="div-11">Submit a Bill </div>
-              <div className="div-12" style={{cursor:"pointer"}} onClick={handleDocument}>Document Center</div>
+              <div
+                className="div-12"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
               <div className="div-13">Request Liability Certificate</div>
-              <div className="div-14" style={{cursor:"pointer"}} onClick={handlePortal}>Portal Support</div>
-              <div className="div-15" style={{cursor:"pointer"}} onClick={handlePayment}>Payment Information</div>
+              <div
+                className="div-14"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-15"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
+              </div>
             </div>
             <div className="div-16">
-              <div className="div-17">
-                <div className="div-18">
-                  <div className="div-19">Search</div>
-                  <div className="div-20">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/1a091f1ffad69cb4b881772f1877971aa0cec9282087b56d76a1119ecae6ce06?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-2"
-                    />
-                    <div className="div-21" />
-                  </div>
-                </div>
-              </div>
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/4efc51911c85474e1b3cc1a78091651ab3eb930057570269a53a3c37a1fc0620?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -74,26 +105,14 @@ export default function LeaseDocumentListView() {
           </div>
         </div>
         <div className="div-22">
-        <div className="div-23">
-            Home /
-            <span style={{paddingLeft:"5px"}}>Document Center /</span>
-            <span style={{ fontWeight: 700,paddingLeft:"5px",fontFamily: "VerizonNHGDS-Bold" }}>Lease Documents</span>
-          </div>
+          <Breadcrumb items={breadcrumbItems} />
           <div className="div-24">Lease Documents</div>
-          <div className="div-25">Please select the Contract ID</div>
-          <div className="div-26">
-            <div className="div-27">
-              <div className="div-28">201897465 - North Reese Avenue</div>
-              <div className="div-29">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/167c4b82bc64c44182731b11773ea86d5bb532c06485938812ccbc4b912a09a3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-5"
-                />
-                <div className="div-30" />
-              </div>
-            </div>
-          </div>
+          <AutoComplete
+            options={options}
+            onChange={handleChange}
+            value={selectedValue}
+            label="Please select the Contract ID"
+          />
           <div className="div-31">
             <div className="div-32">
               Contract ID: 201897465 - North Reese Avenue
@@ -102,164 +121,164 @@ export default function LeaseDocumentListView() {
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/c80fe5ed092605637b90cf56874175fc5004c921b7f520945aa636df379eba10?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-6" style={{cursor:"pointer"}} onClick={handleLeaseGrid}
+                className="img-6"
+                style={{ cursor: "pointer" }}
+                onClick={handleLeaseGrid}
               />
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/8c592c2bcbe0ecb79ac584f0cb6bd3092558eccc4293050384048d7435804e85?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-7" style={{cursor:"pointer"}} onClick={handleLeaseList}
+                className="img-7"
+                style={{ cursor: "pointer" }}
+                onClick={handleLeaseList}
               />
             </div>
           </div>
           <div className="div-34" />
-          <div className="div-35">
-            <div className="div-36">Lease Agreements</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb5f62170a6d999fa0e4aca29e268ac656b50b0985d72add1b07c2c53002147c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-8"
-            />
-          </div>
-          <div className="div-37">
-            <div className="div-38">
-              <div className="div-39">
-                <div className="div-40">Document</div>
-                <div className="div-41">Date Added</div>
-                <div className="div-42">Size</div>
-                <div className="div-43">Type</div>
-                <div className="div-44">Action</div>
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9cc801910f295cfee2b7e80d506624c5bb9bf47dbcdaca05869ac5f1ab8ea5d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+            className="img-14"
+          />
+          <div className="accordion-wrapper">
+            <AccordionComponent title="Lease Agreements" defaultExpanded={true}>
+              <div className="div-37">
+                <div className="div-38">
+                  <div className="div-39">
+                    <div className="div-40">Document</div>
+                    <div className="div-41">Date Added</div>
+                    <div className="div-42">Size</div>
+                    <div className="div-43">Type</div>
+                    <div className="div-44">Action</div>
+                  </div>
+                  <div className="div-45">
+                    <div className="div-46">201897465_Name</div>
+                    <div className="div-47">09/14/2016</div>
+                    <div className="div-48">20 MB</div>
+                    <div className="div-49">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/697152f83965618dbe69b809d170625261fa74f0d5bbb87a9109d4aff27301a1?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-9"
+                    />
+                  </div>
+                  <div className="div-50">
+                    <div className="div-51">201897465_Name</div>
+                    <div className="div-52">09/14/2016</div>
+                    <div className="div-53">25 MB</div>
+                    <div className="div-54">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0bde9bfcfa55cbfcdeeefcf637aa8ed56e3d0371a77dea8f5838155e2e5212b?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-10"
+                    />
+                  </div>
+                  <div className="div-55">
+                    <div className="div-56">201897465_Name</div>
+                    <div className="div-57">09/14/2016</div>
+                    <div className="div-58">15 MB</div>
+                    <div className="div-59">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/767c3accee899b7e314a9823fba1e8155f7621a794b01392e9e61ef46d29ae80?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-11"
+                    />
+                  </div>
+                  <div className="div-60">
+                    <div className="div-61">201897465_Name</div>
+                    <div className="div-62">09/14/2016</div>
+                    <div className="div-63">10 MB</div>
+                    <div className="div-64">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/5671cabc3d87890405d65ab9544811ea8a16c81a587445feb387aba332edbf72?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-12"
+                    />
+                  </div>
+                  <div className="div-65">
+                    <div className="div-66">201897465_Name</div>
+                    <div className="div-67">09/14/2016</div>
+                    <div className="div-68">35 MB</div>
+                    <div className="div-69">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/54d31e33c8d76d8d52867fb4a79aeb51caee4a0febaedbfde41796bda2029845?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-13"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="div-45">
-                <div className="div-46">201897465_Name</div>
-                <div className="div-47">09/14/2016</div>
-                <div className="div-48">20 MB</div>
-                <div className="div-49">PDF</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/697152f83965618dbe69b809d170625261fa74f0d5bbb87a9109d4aff27301a1?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-9"
-                />
+            </AccordionComponent>
+          </div>
+          <div className="accordion-wrapper">
+            <AccordionComponent title="Lease Amendments" defaultExpanded={true}>
+              <div className="div-37">
+                <div className="div-38">
+                  <div className="div-72">
+                    <div className="div-73">Document</div>
+                    <div className="div-74">Date Added</div>
+                    <div className="div-75">Size</div>
+                    <div className="div-76">Type</div>
+                    <div className="div-77">Action</div>
+                  </div>
+                  <div className="div-78">
+                    <div className="div-79">201897465_Name</div>
+                    <div className="div-80">09/14/2016</div>
+                    <div className="div-81">20 MB</div>
+                    <div className="div-82">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/ddc1282f424a8772f90efdb0aa1feed38cb681d9848f5fb89aa3b8b78580d90a?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-16"
+                    />
+                  </div>
+                  <div className="div-83">
+                    <div className="div-84">201897465_Name</div>
+                    <div className="div-85">09/14/2016</div>
+                    <div className="div-86">25 MB</div>
+                    <div className="div-87">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/519ab7840ceeb4a6b5cac1e031b2a4f0f44d1ed98f5f6a7edc2130f816f70deb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-17"
+                    />
+                  </div>
+                  <div className="div-88">
+                    <div className="div-89">201897465_Name</div>
+                    <div className="div-90">09/14/2016</div>
+                    <div className="div-91">15 MB</div>
+                    <div className="div-92">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/26ffe51b9c8b28bdd40a14d1877580cf0074e9e706b6e4cfc032ae9cdfaf72ea?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-18"
+                    />
+                  </div>
+                  <div className="div-93">
+                    <div className="div-94">201897465_Name</div>
+                    <div className="div-95">09/14/2016</div>
+                    <div className="div-96">10 MB</div>
+                    <div className="div-97">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/51a6ceccc21d566d6dc43327ad93281dd39932e736a0be64a55f0246cbb5a592?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-19"
+                    />
+                  </div>
+                  <div className="div-98">
+                    <div className="div-99">201897465_Name</div>
+                    <div className="div-100">09/14/2016</div>
+                    <div className="div-101">35 MB</div>
+                    <div className="div-102">PDF</div>
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/c443fad8d8d18e4d8e18cd1c016386dbaca7d826c602b104ab8f626f67ee503d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-20"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="div-50">
-                <div className="div-51">201897465_Name</div>
-                <div className="div-52">09/14/2016</div>
-                <div className="div-53">25 MB</div>
-                <div className="div-54">PDF</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/f0bde9bfcfa55cbfcdeeefcf637aa8ed56e3d0371a77dea8f5838155e2e5212b?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-10"
-                />
-              </div>
-              <div className="div-55">
-                <div className="div-56">201897465_Name</div>
-                <div className="div-57">09/14/2016</div>
-                <div className="div-58">15 MB</div>
-                <div className="div-59">PDF</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/767c3accee899b7e314a9823fba1e8155f7621a794b01392e9e61ef46d29ae80?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-11"
-                />
-              </div>
-              <div className="div-60">
-                <div className="div-61">201897465_Name</div>
-                <div className="div-62">09/14/2016</div>
-                <div className="div-63">10 MB</div>
-                <div className="div-64">PDF</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/5671cabc3d87890405d65ab9544811ea8a16c81a587445feb387aba332edbf72?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-12"
-                />
-              </div>
-              <div className="div-65">
-                <div className="div-66">201897465_Name</div>
-                <div className="div-67">09/14/2016</div>
-                <div className="div-68">35 MB</div>
-                <div className="div-69">PDF</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/54d31e33c8d76d8d52867fb4a79aeb51caee4a0febaedbfde41796bda2029845?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-13"
-                />
-              </div>
-            </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9cc801910f295cfee2b7e80d506624c5bb9bf47dbcdaca05869ac5f1ab8ea5d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-14"
-            />
-          </div>
-          <div className="div-70">
-            <div className="div-71">Lease Amendments</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb5f62170a6d999fa0e4aca29e268ac656b50b0985d72add1b07c2c53002147c?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-15"
-            />
-          </div>
-          <div className="div-72">
-            <div className="div-73">Document</div>
-            <div className="div-74">Date Added</div>
-            <div className="div-75">Size</div>
-            <div className="div-76">Type</div>
-            <div className="div-77">Action</div>
-          </div>
-          <div className="div-78">
-            <div className="div-79">201897465_Name</div>
-            <div className="div-80">09/14/2016</div>
-            <div className="div-81">20 MB</div>
-            <div className="div-82">PDF</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ddc1282f424a8772f90efdb0aa1feed38cb681d9848f5fb89aa3b8b78580d90a?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-16"
-            />
-          </div>
-          <div className="div-83">
-            <div className="div-84">201897465_Name</div>
-            <div className="div-85">09/14/2016</div>
-            <div className="div-86">25 MB</div>
-            <div className="div-87">PDF</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/519ab7840ceeb4a6b5cac1e031b2a4f0f44d1ed98f5f6a7edc2130f816f70deb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-17"
-            />
-          </div>
-          <div className="div-88">
-            <div className="div-89">201897465_Name</div>
-            <div className="div-90">09/14/2016</div>
-            <div className="div-91">15 MB</div>
-            <div className="div-92">PDF</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/26ffe51b9c8b28bdd40a14d1877580cf0074e9e706b6e4cfc032ae9cdfaf72ea?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-18"
-            />
-          </div>
-          <div className="div-93">
-            <div className="div-94">201897465_Name</div>
-            <div className="div-95">09/14/2016</div>
-            <div className="div-96">10 MB</div>
-            <div className="div-97">PDF</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/51a6ceccc21d566d6dc43327ad93281dd39932e736a0be64a55f0246cbb5a592?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-19"
-            />
-          </div>
-          <div className="div-98">
-            <div className="div-99">201897465_Name</div>
-            <div className="div-100">09/14/2016</div>
-            <div className="div-101">35 MB</div>
-            <div className="div-102">PDF</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c443fad8d8d18e4d8e18cd1c016386dbaca7d826c602b104ab8f626f67ee503d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-20"
-            />
+            </AccordionComponent>
           </div>
         </div>
         <div className="div-103">
@@ -496,6 +515,7 @@ export default function LeaseDocumentListView() {
           color: #000;
           align-self: stretch;
           margin-top: 24px;
+          margin-bottom: 24px;
           font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
             sans-serif;
         }
@@ -657,14 +677,12 @@ export default function LeaseDocumentListView() {
         .div-37 {
           align-self: stretch;
           display: flex;
-          margin-top: 24px;
           gap: 20px;
           font-size: 16px;
           color: var(--vds-elements-text-icons-borders-primary-onlight, #000);
           font-weight: 400;
           justify-content: space-between;
           padding: 0 1px;
-          width: 1162px;
         }
         @media (max-width: 991px) {
           .div-37 {
@@ -944,13 +962,17 @@ export default function LeaseDocumentListView() {
           align-self: start;
         }
         .img-14 {
-          position: absolute;
+          position: fixed;
+          top: 80%;
           right: 20px;
+          transform: translateY(-80%);
           aspect-ratio: 1.01;
           object-fit: auto;
           object-position: center;
           width: 72px;
+          gap: 0px;
           margin: auto 0;
+          position: absolute;
         }
         .div-70 {
           display: flex;
@@ -991,7 +1013,6 @@ export default function LeaseDocumentListView() {
         }
         .div-72 {
           display: flex;
-          margin-top: 24px;
           gap: 20px;
           font-size: 20px;
           color: var(--vds-elements-text-icons-borders-primary-onlight, #000);
@@ -1317,6 +1338,9 @@ export default function LeaseDocumentListView() {
           font-family: Verizon NHG TX, -apple-system, Roboto, Helvetica,
             sans-serif;
           text-decoration-line: underline;
+        }
+        .accordion-wrapper {
+          width: 1162px;
         }
       `}</style>
     </>

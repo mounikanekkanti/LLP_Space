@@ -99,7 +99,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
             <div className="div-16">
-              <SearchInput></SearchInput>
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -321,7 +321,7 @@ const LandingPage: React.FC = () => {
               <div className="div-94" />
               <div className="div-95">
                 <div className="div-96">
-                  <SearchInput></SearchInput>
+                  <SearchInput placeholder="Search"></SearchInput>
                   </div>
                 <img
                   loading="lazy"
@@ -435,7 +435,6 @@ const LandingPage: React.FC = () => {
       }
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 20px;
           flex-direction: column;
           gap: 20px;
@@ -447,15 +446,17 @@ const LandingPage: React.FC = () => {
           }
         }
         .div-2 {
-          align-self: start;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 90px;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -508,6 +509,7 @@ const LandingPage: React.FC = () => {
           gap: 0px;
           justify-content: center;
           padding: 18px 60px;
+          margin-top: 24px;
         }
         @media (max-width: 991px) {
           .div-7 {
@@ -602,10 +604,16 @@ const LandingPage: React.FC = () => {
           margin: auto 0;
         }
         .div-22 {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          display: flex;
+          width: 100%;
           align-self: center;
           display: flex;
           width: 100%;
-          max-width: 1440px;
           flex-direction: column;
           gap: 0px;
           padding: 0 20px;
@@ -1015,11 +1023,17 @@ const LandingPage: React.FC = () => {
           gap: 0px;
         }
         .div-58 {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          display: flex;
+          width: 100%;
           align-self: center;
           display: flex;
           margin-top: 31px;
           width: 100%;
-          max-width: 1440px;
           flex-direction: column;
           gap: 7px;
         }
@@ -1554,9 +1568,6 @@ const LandingPage: React.FC = () => {
           }
         }
         .div-96 {
-          border-color: rgba(217, 217, 217, 1);
-          border-style: solid;
-          border-width: 1px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -2121,7 +2132,7 @@ const LandingPage: React.FC = () => {
         .div-224 {
           align-self: end;
           display: flex;
-          margin-top: 41px;
+          margin-top: 24px;
           flex-direction: column;
           font-size: 24px;
         }

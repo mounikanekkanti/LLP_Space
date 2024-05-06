@@ -3,22 +3,22 @@ import { useNavigate } from "react-router-dom";
 
 export default function DocumentCenter() {
   const navigate = useNavigate();
-  const handleLease=()=>{
+  const handleLease = () => {
     navigate("/leasedocumentgridview");
-  }
- 
-  const handlePortal=()=>{
-    navigate('/portalsupport')
-  }
-  const handlePayment=()=>{
-    navigate('/paymentinformation')
-  }
-  const handleDocument=()=>{
-    navigate('/documentcenter')
-  }
-  const handleHome=()=>{
-    navigate('/')
-  }
+  };
+
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
   return (
     <>
       <div className="div">
@@ -34,47 +34,74 @@ export default function DocumentCenter() {
             <div className="div-6">Wireless</div>
           </div>
         </div>
-       
+
         <div className="div-07">
-        <div className="div-08">
-          <div className="div-09">
-            <div className="div-010"  style={{cursor:"pointer"}} onClick={handleHome}>Home</div>
-            <div className="div-011">Submit a Bill </div>
-            <div className="div-012" style={{cursor:"pointer"}} onClick={handleDocument}>Document Center</div>
-            <div className="div-013">Request Liability Certificate</div>
-            <div className="div-014" style={{cursor:"pointer"}} onClick={handlePortal}>Portal Support</div>
-            <div className="div-015" style={{cursor:"pointer"}} onClick={handlePayment}>Payment Information</div>
-          </div>
-          <div className="div-016">
-            <div className="div-017">
-              <div className="div-018">
-                <div className="div-019">Search</div>
-                <div className="div-020">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-02"
-                  />
-                  <div className="div-021" />
-                </div>
+          <div className="div-08">
+            <div className="div-09">
+              <div
+                className="div-010"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
+              </div>
+              <div className="div-011">Submit a Bill </div>
+              <div
+                className="div-012"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
+              <div className="div-013">Request Liability Certificate</div>
+              <div
+                className="div-014"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-015"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
               </div>
             </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-03"
-            />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/81fe85ea734e845547329ffcf0a060431beb6606c79049eafc748d9c54c90dbb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-04"
-            />
+            <div className="div-016">
+              <div className="div-017">
+                <div className="div-018">
+                  <div className="div-019">Search</div>
+                  <div className="div-020">
+                    <img
+                      loading="lazy"
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                      className="img-02"
+                    />
+                    <div className="div-021" />
+                  </div>
+                </div>
+              </div>
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                className="img-03"
+              />
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/81fe85ea734e845547329ffcf0a060431beb6606c79049eafc748d9c54c90dbb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+                className="img-04"
+              />
+            </div>
           </div>
         </div>
-      </div>
         <div className="div-8">
           <div className="div-9">
-            Home / <span style={{ fontWeight: 700,fontFamily: "VerizonNHGDS-Bold" }}>Document Center</span>
+            Home /{" "}
+            <span style={{ fontWeight: 700, fontFamily: "VerizonNHGDS-Bold" }}>
+              Document Center
+            </span>
           </div>
           <div className="div-10">Document Center</div>
           <div className="div-11">
@@ -99,7 +126,11 @@ export default function DocumentCenter() {
                 <div className="div-21">Lease Agreements and Amendments</div>
               </div>
               <div className="div-22">
-                <div className="div-23" style={{cursor:"pointer"}} onClick={handleLease}>
+                <div
+                  className="div-23"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleLease}
+                >
                   <img
                     loading="lazy"
                     src="https://cdn.builder.io/api/v1/image/assets/TEMP/43df0acd403cf24a2db92d24d4301ee078826da8ffa8e0729753ce9a57bf9029?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -127,7 +158,6 @@ export default function DocumentCenter() {
       <style>{`
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 20px;
           flex-direction: column;
           gap: 20px;
@@ -139,15 +169,17 @@ export default function DocumentCenter() {
           }
         }
         .div-2 {
-          align-self: start;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 90px;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -221,15 +253,16 @@ export default function DocumentCenter() {
           }
         }
         .div-8 {
-          align-self: center;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 24px;
           display: flex;
-          margin-top: 0;
           width: 100%;
-          max-width: 1440px;
           flex-direction: column;
           gap: 20px;
           align-items: flex-start;
-          margin-left: 65px;
         }
         @media (max-width: 991px) {
           .div-8 {
