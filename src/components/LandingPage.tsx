@@ -606,7 +606,7 @@ const LandingPage: React.FC = () => {
           align-items: center;
           gap: 0px;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
           margin-top: 24px;
         }
         @media (max-width: 991px) {
@@ -1763,7 +1763,6 @@ const LandingPage: React.FC = () => {
         }
         .div-100 {
           display: flex;
-          margin-top: 24px;
           width: 100%;
           max-width: 1440px;
           gap: 20px;
