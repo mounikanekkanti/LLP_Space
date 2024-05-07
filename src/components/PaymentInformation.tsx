@@ -1,5 +1,9 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import SearchInput from "../common/SearchInput";
+import Breadcrumb from "../common/Breadcrumb";
+import AutoComplete from "../common/AutoComplete";
+import DataTableComponent from "../common/DataTableComponent";
 export default function PaymentInformation() {
   const navigate = useNavigate();
   const handlePortal = () => {
@@ -14,6 +18,74 @@ export default function PaymentInformation() {
   const handleHome = () => {
     navigate("/");
   };
+  const [selectedValue, setSelectedValue] = React.useState("");
+  const options = [
+    { value: "1", label: "201897465 - North Reese Avenue" },
+    { value: "2", label: "301897465 - North Reese Avenue" },
+    { value: "3", label: "401897465 - North Reese Avenue" },
+  ];
+
+  const handleChange = (event: any) => {
+    setSelectedValue(event.target.value);
+  };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Payment Information" },
+  ];
+  const newData = [
+  
+    {id:1234, document:'Document_1234', uploadDate:'04/29/2024', uploadedBy:'Williams'},
+    {id:4567, document:'Document_4567', uploadDate:'04/30/2024', uploadedBy:'Johnson'},
+    {id:8901, document:'Document_8901', uploadDate:'05/03/2024', uploadedBy:'Smith'},
+    {id:7901, document:'Document_7901', uploadDate:'05/04/2024', uploadedBy:'Smith'},
+    {id:6901, document:'Document_6901', uploadDate:'05/06/2024', uploadedBy:'Smith'},
+    {id:5901, document:'Document_5901', uploadDate:'05/01/2024', uploadedBy:'Johnson'},
+    {id:4901, document:'Document_4901', uploadDate:'05/02/2024', uploadedBy:'Williams'},
+    // Add more data as needed
+  ];
+  // Define your Data interface
+interface Data {
+  id: number;
+  document: string;
+  uploadDate: string;
+  uploadedBy: string;
+}
+
+// Define HeadCell interface
+interface HeadCell {
+  id: keyof Data; // Use keyof Data to ensure type safety
+  numeric: boolean;
+  disablePadding: boolean;
+  label: string;
+}
+
+const newHeadCells: HeadCell[] = [
+  {
+    id: 'id',
+    numeric: false,
+    disablePadding: false,
+    label: 'Contract ID(#)',
+  },
+  {
+    id: 'document',
+    numeric: false,
+    disablePadding: false,
+    label: 'Document',
+  },
+  {
+    id: 'uploadDate',
+    numeric: false,
+    disablePadding: false,
+    label: 'Upload Date',
+  },
+  {
+    id: 'uploadedBy',
+    numeric: false,
+    disablePadding: false,
+    label: 'Uploaded By',
+  },
+  // Add more head cells for additional columns
+];
   return (
     <>
       <div className="div">
@@ -64,19 +136,7 @@ export default function PaymentInformation() {
               </div>
             </div>
             <div className="div-16">
-              <div className="div-17">
-                <div className="div-18">
-                  <div className="div-19">Search</div>
-                  <div className="div-20">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-2"
-                    />
-                    <div className="div-21" />
-                  </div>
-                </div>
-              </div>
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -91,25 +151,14 @@ export default function PaymentInformation() {
           </div>
         </div>
         <div className="div-22">
-          <div className="div-23">
-            Home /{" "}
-            <span style={{ fontWeight: 700, paddingLeft: "5px", fontFamily: "VerizonNHGDS-Bold" }}>
-              Payment Information
-            </span>
-          </div>
-          <div className="div-24">Please select the Contract ID</div>
-          <div className="div-25">
-            <div className="div-26">
-              <div className="div-27">Select</div>
-              <div className="div-28">
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/446d2cb5d66ad2276a24d6be8fd3336fb216ffa7fe36a839be249cc597ebf0fb?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-5"
-                />
-                <div className="div-29" />
-              </div>
-            </div>
+          <Breadcrumb items={breadcrumbItems} />
+          <div className="search">
+            <AutoComplete
+              options={options}
+              onChange={handleChange}
+              value={selectedValue}
+              label="Please select the Contract ID"
+            />
           </div>
           <div className="div-30">
             <div className="div-31">
@@ -144,19 +193,15 @@ export default function PaymentInformation() {
           <div className="div-42">Payment Activity</div>
           <div className="div-43" />
           <div className="div-44" />
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd801843df2d79132c95d34931b892d283de51a36ed99f5541b938adee22cb07?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+            className="img-11"
+          />
           <div className="div-45">
             <div className="div-46">
               <div className="div-47">
-                <div className="div-48">
-                  <div className="div-49">
-                    <div className="div-50">Search</div>
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/a8955a565a3b900150af1cf89819828e2d22a3e78b752b23081155e2a1edf399?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-8"
-                    />
-                  </div>
-                </div>
+                <SearchInput placeholder="Search"></SearchInput>
                 <img
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd3f71ab2557f3308af5c155de86e555021173a3dd3e15570944286a97b90aea?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -164,124 +209,8 @@ export default function PaymentInformation() {
                 />
               </div>
               <div className="div-51" />
-              <div className="div-52">
-                <div className="div-53">
-                  <div className="div-54">
-                    <div className="div-55" />
-                  </div>
-                  <div className="div-56">Payment Date</div>
-                </div>
-                <div className="div-57">
-                  <div className="div-58">Reconciled Date</div>
-                  <div className="div-59">Reference ID</div>
-                  <div className="div-60">Payment Amount</div>
-                  <div className="div-61">Payment Type</div>
-                  <div className="div-62">Payment Method</div>
-                  <div className="div-63">Payment Status</div>
-                </div>
-              </div>
-              <div className="div-64" />
-              <div className="div-65">
-                <div className="div-66">
-                  <div className="div-67">
-                    <div className="div-68" />
-                  </div>
-                  <div className="div-69">MM/DD/YYYY</div>
-                </div>
-                <div className="div-70">
-                  <div className="div-71">MM/DD/YYYY</div>
-                  <div className="div-72">Ipsum</div>
-                  <div className="div-73">$1000</div>
-                  <div className="div-74">Ipsum</div>
-                  <div className="div-75">Ipsum</div>
-                  <div className="div-76">Ipsum</div>
-                </div>
-              </div>
-              <div className="div-77" />
-              <div className="div-78">
-                <div className="div-79">
-                  <div className="div-80">
-                    <div className="div-81" />
-                  </div>
-                  <div className="div-82">MM/DD/YYYY</div>
-                </div>
-                <div className="div-83">
-                  <div className="div-84">MM/DD/YYYY</div>
-                  <div className="div-85">Ipsum</div>
-                  <div className="div-86">$1000</div>
-                  <div className="div-87">Ipsum</div>
-                  <div className="div-88">Ipsum</div>
-                  <div className="div-89">Ipsum</div>
-                </div>
-              </div>
-              <div className="div-90" />
-            </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/fd801843df2d79132c95d34931b892d283de51a36ed99f5541b938adee22cb07?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-11"
-            />
-          </div>
-          <div className="div-91">
-            <div className="div-92">
-              <div className="div-93">
-                <div className="div-94" />
-              </div>
-              <div className="div-95">MM/DD/YYYY</div>
-            </div>
-            <div className="div-96">
-              <div className="div-97">MM/DD/YYYY</div>
-              <div className="div-98">Ipsum</div>
-              <div className="div-99">$1000</div>
-              <div className="div-100">Ipsum</div>
-              <div className="div-101">Ipsum</div>
-              <div className="div-102">Ipsum</div>
-            </div>
-          </div>
-          <div className="div-103" />
-          <div className="div-104">
-            <div className="div-105">
-              <div className="div-106">
-                <img
-                  loading="lazy"
-                  srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-12"
-                />
-                <div className="div-107">
-                  <div className="div-108" />
-                </div>
-              </div>
-              <div className="div-109">Displaying 3 of 3 Rows</div>
-            </div>
-            <div className="div-110">
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/fff346af858c61d4a1c0833a5149864b8f842f66fa551b1e451812fa1bee7669?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-13"
-              />
-              <div className="div-111">1</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/796ac7ce556c180edcc6e21b3f2ca948e2fb92e6c8117b6d444bd642a75b4842?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-14"
-              />
-            </div>
-            <div className="div-112">
-              <div className="div-113">Go to:</div>
-              <div className="div-114">1</div>
-              <div className="div-115">
-                <div className="div-116">/</div>
-                <div className="div-117">1</div>
-                <div className="div-118">
-                  <div className="div-119">Export</div>
-                  <div className="div-120">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/d70828168b133f2c9d66b3863b46187e9b35fffdf1ea11a42f24a792ef62f3e2?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-15"
-                    />
-                  </div>
-                </div>
+              <div className="div-100">
+                <DataTableComponent rows={newData} headCells={newHeadCells} />
               </div>
             </div>
           </div>
@@ -298,7 +227,6 @@ export default function PaymentInformation() {
       <style>{`
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 17px;
           flex-direction: column;
           gap: 20px;
@@ -310,15 +238,17 @@ export default function PaymentInformation() {
           }
         }
         .div-2 {
-          align-self: start;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 90px;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -371,7 +301,7 @@ export default function PaymentInformation() {
           align-items: center;
           gap: 0px;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
         }
         @media (max-width: 991px) {
           .div-7 {
@@ -514,13 +444,16 @@ export default function PaymentInformation() {
           margin: auto 0;
         }
         .div-22 {
-          align-self: center;
-          display: flex;
-          margin-top: 0px;
-          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
           max-width: 1500px;
+          position: relative;
+          padding: 24px;
+          display: flex;
+          width: 100%;
           flex-direction: column;
-          gap: 4px;
+          gap: 0px;
+          align-items: flex-start;
         }
         @media (max-width: 991px) {
           .div-22 {
@@ -546,7 +479,6 @@ export default function PaymentInformation() {
           color: var(--vds-elements-text-icons-borders-primary-onlight, #000);
           font-feature-settings: "clig" off, "liga" off;
           align-self: start;
-          margin-top: 24px;
           gap: 0px;
           font: 400 12px/133% Verizon NHG TX, -apple-system, Roboto, Helvetica,
             sans-serif;
@@ -778,6 +710,7 @@ export default function PaymentInformation() {
           background-color: #d9d9d9;
           margin-top: 26px;
           gap: 0px;
+          width: 1440px;
         }
         @media (max-width: 991px) {
           .div-43 {
@@ -788,11 +721,12 @@ export default function PaymentInformation() {
         .div-44 {
           border-color: rgba(0, 0, 0, 1);
           border-style: solid;
-          border-width: 2px;
+          border-width: 1px;
           background-color: #000;
           margin-top: 38px;
           height: 0;
           gap: 0px;
+          width: 1440px;
         }
         @media (max-width: 991px) {
           .div-44 {
@@ -805,6 +739,7 @@ export default function PaymentInformation() {
           margin-top: 7px;
           gap: 20px;
           justify-content: space-between;
+          width: 1440px;
         }
         @media (max-width: 991px) {
           .div-45 {
@@ -834,6 +769,7 @@ export default function PaymentInformation() {
           white-space: nowrap;
           line-height: 133%;
           justify-content: space-between;
+          margin: 7px 35px 0 0;
         }
         @media (max-width: 991px) {
           .div-47 {
@@ -912,7 +848,7 @@ export default function PaymentInformation() {
           border-width: 1px;
           background-color: #a7a7a7;
           margin-top: 7px;
-          height: 1px;
+          height: 0px;
           gap: 0px;
         }
         @media (max-width: 991px) {
@@ -1019,7 +955,7 @@ export default function PaymentInformation() {
           border-width: 1px;
           background-color: #000;
           margin-top: 13px;
-          height: 1px;
+          height: 0px;
           gap: 0px;
         }
         @media (max-width: 991px) {
@@ -1124,7 +1060,7 @@ export default function PaymentInformation() {
           border-width: 1px;
           background-color: #a7a7a7;
           margin-top: 18px;
-          height: 1px;
+          height: 0px;
           gap: 0px;
         }
         @media (max-width: 991px) {
@@ -1230,7 +1166,7 @@ export default function PaymentInformation() {
           border-width: 1px;
           background-color: #a7a7a7;
           margin-top: 19px;
-          height: 1px;
+          height: 0px;
           gap: 0px;
         }
         @media (max-width: 991px) {
@@ -1240,14 +1176,16 @@ export default function PaymentInformation() {
           }
         }
         .img-11 {
-          position: absolute;
-          right: 10px;
           aspect-ratio: 1.01;
           object-fit: auto;
           object-position: center;
-          width: 72px;
+          width: 100%;
+          align-self: end;
+          margin-top: 20%;
           gap: 0px;
-          margin: auto 0;
+          width: 72px;
+          position: absolute;
+          right: 0;
         }
         .div-91 {
           display: flex;
@@ -1344,9 +1282,9 @@ export default function PaymentInformation() {
           border-style: solid;
           border-width: 1px;
           background-color: #a7a7a7;
-          margin-top: 21px;
-          height: 1px;
+          height: 0px;
           gap: 0px;
+          width: 100%;
         }
         @media (max-width: 991px) {
           .div-103 {
@@ -1631,6 +1569,26 @@ export default function PaymentInformation() {
             sans-serif;
           text-decoration-line: underline;
           gap: 0px;
+        }
+        .search {
+          width: 420px;
+          margin-top: 24px;
+        }
+        .div-100 {
+          display: flex;
+          width: 100%;
+          max-width: 1440px;
+          gap: 20px;
+          font-size: 14px;
+          color: #000;
+          font-weight: 700;
+          justify-content: space-between;
+        }
+        @media (max-width: 991px) {
+          .div-100 {
+            max-width: 100%;
+            flex-wrap: wrap;
+          }
         }
       `}</style>
     </>

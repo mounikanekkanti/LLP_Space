@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SearchInput from "../common/SearchInput";
 import AccordionComponent from "../common/Accordion";
 import PageButton from "../common/Button";
+import Breadcrumb from "../common/Breadcrumb";
 
 export default function PortalSupport() {
   const navigate = useNavigate();
@@ -22,6 +23,10 @@ export default function PortalSupport() {
   const handleHome = () => {
     navigate("/");
   };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Portal Support",}
+  ];
   return (
     <>
       <div className="div">
@@ -87,10 +92,7 @@ export default function PortalSupport() {
           </div>
         </div>
         <div className="div-8">
-          <span style={{ fontWeight: 400 }}>Home / </span>
-          <span style={{ fontWeight: 700, fontFamily: "VerizonNHGDS-Bold" }}>
-            Portal Support
-          </span>
+        <Breadcrumb items={breadcrumbItems} />
         </div>
         <div className="div-9">
           <div className="div-10">
@@ -261,7 +263,6 @@ export default function PortalSupport() {
       <style>{`
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 20px;
           flex-direction: column;
           gap: 20px;
@@ -273,16 +274,17 @@ export default function PortalSupport() {
           }
         }
         .div-2 {
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 90px;
-          width: 406px;
-          max-width: 100%;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -360,9 +362,13 @@ export default function PortalSupport() {
           font-feature-settings: "clig" off, "liga" off;
           align-self: start;
           gap: 0px;
-          margin: 0px 0 0 168px;
           font: 700 12px Verizon NHG DS, -apple-system, Roboto, Helvetica,
             sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1500px;
+            position: relative;
+            padding: 24px;
         }
         @media (max-width: 991px) {
           .div-8 {
@@ -371,14 +377,6 @@ export default function PortalSupport() {
         }
         .div-9 {
           background-color: #f6f6f6;
-          display: flex;
-          margin-top: 0;
-          width: 100%;
-          flex-direction: column;
-          align-items: start;
-          gap: 0px;
-          justify-content: center;
-          padding: 24px 60px;
         }
         @media (max-width: 991px) {
           .div-9 {
@@ -389,8 +387,14 @@ export default function PortalSupport() {
         }
         .div-10 {
           display: flex;
-          margin-left: 112px;
           gap: 20px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 24px;
+          align-items: flex-start;
+          justify-content: flex-start;
         }
         @media (max-width: 991px) {
           .div-10 {
@@ -402,7 +406,6 @@ export default function PortalSupport() {
           flex-direction: column;
           gap: 0px;
           justify-content: center;
-          flex-grow: 1;
           flex-basis: 0;
           width: fit-content;
         }
@@ -551,7 +554,6 @@ export default function PortalSupport() {
           display: flex;
           margin-top: 24px;
           width: 100%;
-          max-width: 1440px;
           flex-direction: column;
           align-items: start;
           gap: 20px;
@@ -1403,7 +1405,7 @@ export default function PortalSupport() {
           align-items: center;
           gap: 0px;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
         }
         @media (max-width: 991px) {
           .div-07 {
@@ -1549,10 +1551,13 @@ export default function PortalSupport() {
           align-self: center;
           display: flex;
           width: 100%;
-          max-width: 1440px;
           flex-direction: column;
           gap: 0px;
-          padding: 0 20px;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 24px;
         }
         .portal-accordion {
           padding-bottom: 24px;

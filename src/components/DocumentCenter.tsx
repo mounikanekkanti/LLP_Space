@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import SearchInput from "../common/SearchInput";
+import Breadcrumb from "../common/Breadcrumb";
 
 export default function DocumentCenter() {
   const navigate = useNavigate();
@@ -19,6 +21,10 @@ export default function DocumentCenter() {
   const handleHome = () => {
     navigate("/");
   };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Document Center",}
+  ];
   return (
     <>
       <div className="div">
@@ -70,19 +76,7 @@ export default function DocumentCenter() {
               </div>
             </div>
             <div className="div-016">
-              <div className="div-017">
-                <div className="div-018">
-                  <div className="div-019">Search</div>
-                  <div className="div-020">
-                    <img
-                      loading="lazy"
-                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/443f2c04915a0180ea1735736b6c0a27f3819cd061f59e4d6d14f44ec752f6e7?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                      className="img-02"
-                    />
-                    <div className="div-021" />
-                  </div>
-                </div>
-              </div>
+            <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -97,12 +91,7 @@ export default function DocumentCenter() {
           </div>
         </div>
         <div className="div-8">
-          <div className="div-9">
-            Home /{" "}
-            <span style={{ fontWeight: 700, fontFamily: "VerizonNHGDS-Bold" }}>
-              Document Center
-            </span>
-          </div>
+        <Breadcrumb items={breadcrumbItems} />
           <div className="div-10">Document Center</div>
           <div className="div-11">
             <div className="div-12">
@@ -286,8 +275,9 @@ export default function DocumentCenter() {
         .div-10 {
           color: #000;
           gap: 0px;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 24px;
         }
         @media (max-width: 991px) {
           .div-10 {
@@ -338,10 +328,11 @@ export default function DocumentCenter() {
           }
         }
         .div-14 {
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 20px;
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
         }
         @media (max-width: 991px) {
           .div-14 {
@@ -429,10 +420,11 @@ export default function DocumentCenter() {
           }
         }
         .div-20 {
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 20px;
           font-feature-settings: "clig" off, "liga" off;
           gap: 0px;
-          font: 700 20px/120% Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
         }
         @media (max-width: 991px) {
           .div-20 {
@@ -508,7 +500,7 @@ export default function DocumentCenter() {
         .div-24 {
           background-color: #d9d9d9;
           display: flex;
-          margin-top: 256px;
+          margin-top: 266px;
           width: 100%;
           align-items: center;
           gap: 0px;
@@ -565,7 +557,7 @@ export default function DocumentCenter() {
           align-items: center;
           gap: 0px;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
         }
         @media (max-width: 991px) {
           .div-07 {

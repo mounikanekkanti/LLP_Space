@@ -336,7 +336,6 @@ export default function LeaseDocumentGridView() {
       <style>{`
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 20px;
           flex-direction: column;
           gap: 20px;
@@ -348,15 +347,17 @@ export default function LeaseDocumentGridView() {
           }
         }
         .div-2 {
-          align-self: start;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 110px;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -403,12 +404,13 @@ export default function LeaseDocumentGridView() {
           gap: 0px;
         }
         .div-7 {
+          margin-top: 24px;
           background-color: #000;
           display: flex;
           align-items: center;
           gap: 0px;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
         }
         @media (max-width: 991px) {
           .div-7 {
@@ -551,15 +553,16 @@ export default function LeaseDocumentGridView() {
           margin: auto 0;
         }
         .div-22 {
-          align-self: center;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 24px;
           display: flex;
-          margin-top: 0;
           width: 100%;
-          max-width: 1684px;
           flex-direction: column;
-          align-items: start;
-          gap: 4px;
-          margin-left: 182px;
+          gap: 20px;
+          align-items: flex-start;
         }
         @media (max-width: 991px) {
           .div-22 {
@@ -586,11 +589,10 @@ export default function LeaseDocumentGridView() {
           display: flex;
           color: #000;
           align-self: stretch;
-          margin-top: 24px;
-          margin-bottom: 24px;
           gap: 0px;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 24px;
         }
         @media (max-width: 991px) {
           .div-24 {
@@ -665,7 +667,7 @@ export default function LeaseDocumentGridView() {
         }
         .div-31 {
           display: flex;
-          margin-top: 29px;
+          margin-top: 6px;
           width: 1162px;
           max-width: 100%;
           gap: 20px;
@@ -681,8 +683,9 @@ export default function LeaseDocumentGridView() {
           gap: 0px;
           flex-grow: 1;
           flex-basis: auto;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 24px;
         }
         @media (max-width: 991px) {
           .div-32 {

@@ -293,20 +293,23 @@ export default function LeaseDocumentListView() {
       <style>{`
         .div {
           background-color: #fff;
-          display: flex;
           padding-top: 20px;
           flex-direction: column;
+          gap: 20px;
+          overflow-x: hidden;
         }
         .div-2 {
-          align-self: start;
+          margin-right: auto;
+          max-width: 1500px;
+          position: relative;
+          padding: 0 24px;
+          align-self: flex-start;
           display: flex;
-          margin-left: 115px;
+          margin-left: auto;
           gap: 20px;
           font-size: 12px;
           color: #000;
           font-weight: 400;
-          white-space: nowrap;
-          justify-content: space-between;
         }
         @media (max-width: 991px) {
           .div-2 {
@@ -354,7 +357,7 @@ export default function LeaseDocumentListView() {
           margin-top: 24px;
           align-items: center;
           justify-content: center;
-          padding: 18px 60px;
+          padding: 18px 24px;
         }
         @media (max-width: 991px) {
           .div-7 {
@@ -516,8 +519,9 @@ export default function LeaseDocumentListView() {
           align-self: stretch;
           margin-top: 24px;
           margin-bottom: 24px;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 24px;
         }
         @media (max-width: 991px) {
           .div-24 {
@@ -599,8 +603,9 @@ export default function LeaseDocumentListView() {
           flex-grow: 1;
           flex-basis: auto;
           margin: auto 0;
-          font: 700 24px Verizon NHG DS, -apple-system, Roboto, Helvetica,
-            sans-serif;
+          font-family: "VerizonNHGDS-Bold";
+          font-weight: 700;
+          font-size: 24px;
         }
         @media (max-width: 991px) {
           .div-32 {
@@ -630,7 +635,7 @@ export default function LeaseDocumentListView() {
           background-color: var(--blackl-000000-dffffff, #000);
           align-self: stretch;
           margin-top: 25px;
-          height: 0px;
+          height: 1px;
           width: 1162px;
         }
         @media (max-width: 991px) {
