@@ -1,14 +1,31 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import Breadcrumb from "../common/Breadcrumb";
 
 export default function MyAccount() {
   const navigate = useNavigate();
-  const handleTransactionHistory=()=>{
+  const handleTransactionHistory = () => {
     navigate("/transactionhistory");
-  }
-  const handleLogin=()=>{
-    navigate('/loginandsecurity')
-  }
+  };
+  const handleLogin = () => {
+    navigate("/loginandsecurity");
+  };
+  const handleHome = () => {
+    navigate("/");
+  };
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "My Account" },
+  ];
   return (
     <>
       <div className="div">
@@ -27,12 +44,36 @@ export default function MyAccount() {
         <div className="div-7">
           <div className="div-8">
             <div className="div-9">
-              <div className="div-10">Home</div>
+              <div
+                className="div-10"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
+              </div>
               <div className="div-11">Submit a Bill </div>
-              <div className="div-12">Document Center</div>
+              <div
+                className="div-12"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
               <div className="div-13">Request Liability Certificate</div>
-              <div className="div-14">Portal Support</div>
-              <div className="div-15">Payment Information</div>
+              <div
+                className="div-14"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-15"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
+              </div>
             </div>
             <div className="div-16">
               <div className="div-17">
@@ -62,18 +103,15 @@ export default function MyAccount() {
           </div>
         </div>
         <div className="div-22">
-          <div className="div-23">
-            <span style={{ fontWeight: "400px" }}>Home / </span>
-            <span
-              style={{ fontWeight: "700px", fontFamily: "VerizonNHGDS-Bold" }}
-            >
-              My Account
-            </span>
-          </div>
+          <Breadcrumb items={breadcrumbItems} />
           <div className="div-24">
             <div className="div-25">
               <div className="column">
-                <div className="div-26" style={{cursor:"pointer"}} onClick={handleLogin}>
+                <div
+                  className="div-26"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleLogin}
+                >
                   <div className="div-27">Login & Security</div>
                   <div className="div-28">
                     Change Password, Security, and Contact Details
@@ -108,7 +146,11 @@ export default function MyAccount() {
                 </div>
               </div>
               <div className="column-4">
-                <div className="div-35" style={{cursor:"pointer"}} onClick={handleTransactionHistory}>
+                <div
+                  className="div-35"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleTransactionHistory}
+                >
                   <div className="div-36">Transaction History</div>
                   <div className="div-37">Track Status, Get Notifications</div>
                   <img

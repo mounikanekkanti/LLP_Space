@@ -22,6 +22,7 @@ import InputField from "./common/TextField";
 import Breadcrumb from "./common/Breadcrumb";
 import AutoComplete from "./common/AutoComplete";
 import AccordionComponent from "./common/Accordion";
+import CardComponent from "./common/Card";
 
 function App() {
   const breadcrumbItems = [
@@ -79,7 +80,10 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/transactiondetails" element={<TransactionDetails />} />
           <Route path="/transactionhistory" element={<TransactionHistory />} />
-          <Route path="/searchinput" element={<SearchInput placeholder="Search"/>} />
+          <Route
+            path="/searchinput"
+            element={<SearchInput placeholder="Search" />}
+          />
           <Route
             path="/button"
             element={<PageButton buttonType="secondary">Feedback</PageButton>}

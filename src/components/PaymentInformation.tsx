@@ -35,7 +35,60 @@ export default function PaymentInformation() {
     { label: "Home", href: "/" },
     { label: "Payment Information" },
   ];
+  const newData = [
   
+    {id:1234, document:'Document_1234', uploadDate:'04/29/2024', uploadedBy:'Williams'},
+    {id:4567, document:'Document_4567', uploadDate:'04/30/2024', uploadedBy:'Johnson'},
+    {id:8901, document:'Document_8901', uploadDate:'05/03/2024', uploadedBy:'Smith'},
+    {id:7901, document:'Document_7901', uploadDate:'05/04/2024', uploadedBy:'Smith'},
+    {id:6901, document:'Document_6901', uploadDate:'05/06/2024', uploadedBy:'Smith'},
+    {id:5901, document:'Document_5901', uploadDate:'05/01/2024', uploadedBy:'Johnson'},
+    {id:4901, document:'Document_4901', uploadDate:'05/02/2024', uploadedBy:'Williams'},
+    // Add more data as needed
+  ];
+  // Define your Data interface
+interface Data {
+  id: number;
+  document: string;
+  uploadDate: string;
+  uploadedBy: string;
+}
+
+// Define HeadCell interface
+interface HeadCell {
+  id: keyof Data; // Use keyof Data to ensure type safety
+  numeric: boolean;
+  disablePadding: boolean;
+  label: string;
+}
+
+const newHeadCells: HeadCell[] = [
+  {
+    id: 'id',
+    numeric: false,
+    disablePadding: false,
+    label: 'Contract ID(#)',
+  },
+  {
+    id: 'document',
+    numeric: false,
+    disablePadding: false,
+    label: 'Document',
+  },
+  {
+    id: 'uploadDate',
+    numeric: false,
+    disablePadding: false,
+    label: 'Upload Date',
+  },
+  {
+    id: 'uploadedBy',
+    numeric: false,
+    disablePadding: false,
+    label: 'Uploaded By',
+  },
+  // Add more head cells for additional columns
+];
   return (
     <>
       <div className="div">
@@ -145,7 +198,7 @@ export default function PaymentInformation() {
               </div>
               <div className="div-51" />
               <div className="div-100">
-                <PaymentInfoTabeComponent/>
+                <DataTableComponent rows={newData} headCells={newHeadCells} />
               </div>
             </div>
           </div>

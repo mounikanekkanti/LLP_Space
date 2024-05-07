@@ -6,6 +6,7 @@ import ShareFeedback from "./ShareFeedback";
 import SearchInput from "../common/SearchInput";
 import PageButton from "../common/Button";
 import DataTableComponent from "../common/DataTableComponent";
+import CardComponent from "../common/Card";
 
 const newData = [
   
@@ -85,6 +86,7 @@ const LandingPage: React.FC = () => {
   };
   const handleClick = () => {
     setIsModalOpen(true);
+    console.log(isModalOpen);
   };
 
   const closeModal = () => {
@@ -101,6 +103,9 @@ const LandingPage: React.FC = () => {
 
   const handleSearchChange = (value: string) => {
     setSearchTerm(value);
+  };
+  const handleArrowClick = () => {
+    console.log("Arrow clicked!");
   };
   return (
     <>
@@ -264,115 +269,65 @@ const LandingPage: React.FC = () => {
           <div className="div-56">View More..</div>
           <div className="div-57" />
         </div>
+        <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e28a59819d07087216da4b22c22240734a88e702e45bfad8f516206dc2b1f451?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+              className="img-21"
+            />
         <div className="div-58">
           <div className="div-59">Quick links</div>
           <div className="div-60">
             <div className="div-61">
               <div className="div-62">
-                <div className="div-63">
-                  <div className="div-64">Submit A Bill</div>
-                  <div className="div-65">
-                    Reimbursements, Maintenance Repair Bills, Power Bills
-                  </div>
-                  <img className="icons" src={"/images/Icon1.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/808431bac7b4e05add2a8803061356aec803de08de6258d18c952bbda88a453d?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-9"
-                  />
-                </div>
-                <div className="div-66">
-                  <div className="div-67">
-                    Request Certificate of Insurance (COI)
-                  </div>
-                  <div className="div-68">Insurance Certificate</div>
-                  <img className="icons" src={"/images/Icon2.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/dcc41e45fbb9d9109a4f9d9502564b06dabfc237529f0335a6b13dd100ae9e95?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-10"
-                  />
-                </div>
-                <div className="div-69">
-                  <div className="div-70">Address Change</div>
-                  <div className="div-71">
-                    Notice Address, Payment Address Changes
-                  </div>
-                  <img className="icons" src={"/images/Icon3.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/2b9a95500fa26cfed16b34a05df39da7bd2c17e265a84466c8e9b618dbc84f80?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-11"
-                  />
-                </div>
+              <CardComponent
+                title="Submit A Bill"
+                description="Reimbursements, Maintenance Repair Bills, Power Bills"
+                imageSrc="/images/Icon1.svg" onArrowClick={handleArrowClick}
+              />
+               <CardComponent
+                title="Request Certificate of Insurance (COI)"
+                description="Insurance Certificate"
+                imageSrc="/images/Icon2.svg" onArrowClick={handleArrowClick}
+              />
+              <CardComponent
+                title="Address Change"
+                description="Notice Address, Payment Address Changes"
+                imageSrc="/images/Icon3.svg" onArrowClick={handleArrowClick}
+              />
               </div>
-              <div className="div-72">
-                <div className="div-73">
-                  <div className="div-74">Cell Site Information</div>
-                  <div className="div-75">Tower Information, Site Location</div>
-                  <img className="icons" src={"/images/Icon4.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/cdf51b4ceb0e21eef1118cad77d047ba8d390930ca549f2a50d9b3e6ae423959?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-12"
-                  />
-                </div>
-                <div className="div-76">
-                  <div className="div-77">Ownership Change</div>
-                  <div className="div-78">Change of Title Ownership</div>
-                  <img className="icons" src={"/images/Icon9.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/6889527ad788b34b32409f406804a51d9d58904368d0ac93008fac33612ee085?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-13"
-                  />
-                </div>
-                <div className="div-79">
-                  <div className="div-80">Direct Deposits</div>
-                  <div className="div-81">Bank Account Details</div>
-                  <img className="icons" src={"/images/Icon5.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a17cb8f5f7bc4855928d362f85d22aa2636a64258bd60b5a545948d101b2e3d3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-14"
-                  />
-                </div>
+              <div className="div-62">
+              <CardComponent
+                title="Cell Site Information"
+                description="Tower Information, Site Location"
+                imageSrc="/images/Icon4.svg" onArrowClick={handleArrowClick}
+              />
+               <CardComponent
+                title="Ownership Change"
+                description="Change of Title Ownership"
+                imageSrc="/images/Icon9.svg" onArrowClick={handleArrowClick}
+              />
+              <CardComponent
+                title="Direct Deposits"
+                description="Bank Account Details"
+                imageSrc="/images/Icon5.svg" onArrowClick={handleArrowClick}
+              />
               </div>
-              <div className="div-82">
-                <div className="div-83">
-                  <div className="div-84">Tickets</div>
-                  <div className="div-85">
-                    Submit Requests, Tracking Requests
-                  </div>
-                  <img className="icons" src={"/images/Icon6.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/cdf51b4ceb0e21eef1118cad77d047ba8d390930ca549f2a50d9b3e6ae423959?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-15"
-                  />
-                </div>
-                <div className="div-86">
-                  <div className="div-87">Lease Agreement</div>
-                  <div className="div-88">
-                    Contract Information, Terms & Conditions
-                  </div>
-                  <img className="icons" src={"/images/Icon7.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/6889527ad788b34b32409f406804a51d9d58904368d0ac93008fac33612ee085?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-16"
-                  />
-                </div>
-                <div className="div-89">
-                  <div className="div-90">Submit Inquiry</div>
-                  <div className="div-91">Invoice, Disputes, Defaults etc.</div>
-                  <img className="icons" src={"/images/Icon8.svg"} />
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/a17cb8f5f7bc4855928d362f85d22aa2636a64258bd60b5a545948d101b2e3d3?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-17"
-                  />
-                </div>
+              <div className="div-62">
+              <CardComponent
+                title="Tickets"
+                description="Submit Requests, Tracking Requests"
+                imageSrc="/images/Icon6.svg" onArrowClick={handleArrowClick}
+              />
+               <CardComponent
+                title="Lease Agreement"
+                description="Contract Information, Terms & Conditions"
+                imageSrc="/images/Icon7.svg" onArrowClick={handleArrowClick}
+              />
+              <CardComponent
+                title="Submit Inquiry"
+                description="Invoice, Disputes, Defaults etc."
+                imageSrc="/images/Icon8.svg" onArrowClick={handleArrowClick}
+              />
               </div>
               <div className="div-92">Recent Activity</div>
               <div className="div-93" />
@@ -388,11 +343,6 @@ const LandingPage: React.FC = () => {
                 />
               </div>
             </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e28a59819d07087216da4b22c22240734a88e702e45bfad8f516206dc2b1f451?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-21"
-            />
           </div>
           <div className="div-99" />
 <div className="div-100">
@@ -400,7 +350,7 @@ const LandingPage: React.FC = () => {
 {/* <DataGridComponent/> */}
 {/* <RecentActivityTable/> */}
 
-<DataTableComponent rows={newData} headCells={newHeadCells} />
+<DataTableComponent rows={newData} headCells={newHeadCells} onContractIdClick={handleClick}/>
 
             {/* <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -533,7 +483,6 @@ const LandingPage: React.FC = () => {
       }
         .div {
           background-color: #fff;
-          padding-top: 20px;
           flex-direction: column;
           gap: 20px;
           overflow-x: hidden;
@@ -1182,7 +1131,8 @@ const LandingPage: React.FC = () => {
         .div-62 {
           display: flex;
           gap: 20px;
-          width: 1440px;
+          width: 1500px;
+          margin-bottom: 18px;
         }
         @media (max-width: 991px) {
           .div-62 {
@@ -1616,7 +1566,7 @@ const LandingPage: React.FC = () => {
           font-family: "VerizonNHGDS-Bold";
           font-size: 24px;
           font-weight: 700;
-          width: 1440px;
+          width: 1500px;
         }
         @media (max-width: 991px) {
           .div-92 {
@@ -1633,7 +1583,7 @@ const LandingPage: React.FC = () => {
           height: 0px;
           gap: 0px;
           margin: 24px 0 0 0;
-          width: 1440px;
+          width: 1500px;
         }
         @media (max-width: 991px) {
           .div-93 {
@@ -1649,7 +1599,7 @@ const LandingPage: React.FC = () => {
           height: 0px;
           gap: 0px;
           margin: 38px 0 0 0;
-          width: 1440px;
+          width: 1500px;
         }
         @media (max-width: 991px) {
           .div-94 {
@@ -1741,16 +1691,20 @@ const LandingPage: React.FC = () => {
           aspect-ratio: 1.01;
           object-fit: auto;
           object-position: center;
-          width: 72px;
-          align-self: start;
+          width: 100%;
+          align-self: end;
+          margin-top: 215px;
           gap: 0px;
+          width: 72px;
+          position: absolute;
+          right: 15px;
         }
         .div-99 {
           border-color: rgba(167, 167, 167, 1);
           border-style: solid;
           border-width: 1px;
           background-color: #a7a7a7;
-          width: 1440px;
+          width: 1500px;
           max-width: 100%;
           height: 0px;
           gap: 0px;
@@ -1764,7 +1718,7 @@ const LandingPage: React.FC = () => {
         .div-100 {
           display: flex;
           width: 100%;
-          max-width: 1440px;
+          max-width: 1500px;
           gap: 20px;
           font-size: 14px;
           color: #000;
@@ -2269,9 +2223,9 @@ const LandingPage: React.FC = () => {
           line-height: 129%;
           padding: 10px 24px;
           position: absolute;
-          right: -130px;
-          margin-top: -32px;
-          width: 203px;
+          right: -108px;
+          margin-top: -15px;
+          width: 190px;
         }
         @media (max-width: 991px) {
           .div-227 {

@@ -2,10 +2,11 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import SearchInput from "../common/SearchInput";
 import Breadcrumb from "../common/Breadcrumb";
+import CardComponent from "../common/Card";
 
 export default function DocumentCenter() {
   const navigate = useNavigate();
-  const handleLease = () => {
+  const handleLeaseDocumentClick = () => {
     navigate("/leasedocumentgridview");
   };
 
@@ -23,7 +24,7 @@ export default function DocumentCenter() {
   };
   const breadcrumbItems = [
     { label: "Home", href: "/" },
-    { label: "Document Center",}
+    { label: "Document Center" },
   ];
   return (
     <>
@@ -76,7 +77,7 @@ export default function DocumentCenter() {
               </div>
             </div>
             <div className="div-016">
-            <SearchInput placeholder="Search"></SearchInput>
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/91c0af30c05bad717a3003da0fa390eaeb2695b7a8241d4c08bc18b3952da043?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -91,43 +92,19 @@ export default function DocumentCenter() {
           </div>
         </div>
         <div className="div-8">
-        <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="div-10">Document Center</div>
           <div className="div-11">
-            <div className="div-12">
-              <div className="div-13">
-                <div className="div-14">My Documents</div>
-                <div className="div-15">My Files</div>
-              </div>
-              <div className="div-16">
-                <div className="div-17">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/43df0acd403cf24a2db92d24d4301ee078826da8ffa8e0729753ce9a57bf9029?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-3"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="div-18">
-              <div className="div-19">
-                <div className="div-20">Lease Documents</div>
-                <div className="div-21">Lease Agreements and Amendments</div>
-              </div>
-              <div className="div-22">
-                <div
-                  className="div-23"
-                  style={{ cursor: "pointer" }}
-                  onClick={handleLease}
-                >
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/43df0acd403cf24a2db92d24d4301ee078826da8ffa8e0729753ce9a57bf9029?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-4"
-                  />
-                </div>
-              </div>
-            </div>
+            <CardComponent
+              title="My Documents"
+              description="My Files"
+              imageSrc="" onArrowClick={handleDocument}
+            />
+            <CardComponent
+              title="Lease Documents"
+              description="Lease Agreements and Amendments"
+              imageSrc="" onArrowClick={handleLeaseDocumentClick}
+            />
           </div>
           <img
             loading="lazy"
@@ -490,7 +467,7 @@ export default function DocumentCenter() {
           gap: 0px;
           width: 72px;
           position: absolute;
-          right: 15px;
+          right: 0;
         }
         @media (max-width: 991px) {
           .img-5 {
@@ -500,7 +477,7 @@ export default function DocumentCenter() {
         .div-24 {
           background-color: #d9d9d9;
           display: flex;
-          margin-top: 266px;
+          margin-top: 238px;
           width: 100%;
           align-items: center;
           gap: 0px;
@@ -698,6 +675,10 @@ export default function DocumentCenter() {
           align-self: stretch;
           gap: 0px;
           margin: auto 0;
+        }
+        .div-11 .card {
+          width: 700px;
+          max-width: 700px;
         }
       `}</style>
     </>
