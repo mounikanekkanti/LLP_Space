@@ -28,6 +28,7 @@ interface HeadCell {
 interface EnhancedTableProps {
   rows: Data[];
   headCells: HeadCell[];
+  onContractIdClick: () => void; // Define click function prop
 }
 
 const descendingComparator = <T, >(a: T, b: T, orderBy: keyof T) => {
@@ -98,7 +99,7 @@ const EnhancedTableHead: React.FC<{
   );
 };
 
-const DataTableComponent: React.FC<EnhancedTableProps> = ({ rows, headCells }) => {
+const DataTableComponent: React.FC<EnhancedTableProps> = ({ rows, headCells, onContractIdClick }) => {
   const [order, setOrder] = React.useState<Order>('asc');
   const [orderBy, setOrderBy] = React.useState<keyof Data>('document');
   const [page, setPage] = React.useState(0);
@@ -139,17 +140,12 @@ const DataTableComponent: React.FC<EnhancedTableProps> = ({ rows, headCells }) =
           <TableBody>
             {visibleRows.map((row) => (
               <TableRow hover key={row.id} sx={{ cursor: 'pointer' }}>
-                <TableCell>{row.id}</TableCell>
+                <TableCell onClick={() => onContractIdClick()}>{row.id}</TableCell>
                 <TableCell>{row.document}</TableCell>
                 <TableCell>{row.uploadDate}</TableCell>
                 <TableCell>{row.uploadedBy}</TableCell>
               </TableRow>
             ))}
-            {/* {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={4} />
-              </TableRow>
-            )} */}
           </TableBody>
         </Table>
       </TableContainer>

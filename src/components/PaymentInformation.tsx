@@ -64,7 +64,7 @@ const newHeadCells: HeadCell[] = [
     id: 'id',
     numeric: false,
     disablePadding: false,
-    label: 'Contract ID(#)',
+    label: 'Payment Date',
   },
   {
     id: 'document',
@@ -86,6 +86,8 @@ const newHeadCells: HeadCell[] = [
   },
   // Add more head cells for additional columns
 ];
+const onContractIdClick = () => {
+}
   return (
     <>
       <div className="div">
@@ -210,7 +212,7 @@ const newHeadCells: HeadCell[] = [
               </div>
               <div className="div-51" />
               <div className="div-100">
-                <DataTableComponent rows={newData} headCells={newHeadCells} />
+                <DataTableComponent rows={newData} headCells={newHeadCells} onContractIdClick={onContractIdClick}/>
               </div>
             </div>
           </div>

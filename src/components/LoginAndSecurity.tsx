@@ -7,9 +7,18 @@ import AccordionComponent from "../common/Accordion";
 import SearchInput from "../common/SearchInput";
 export default function LoginAndSecurity() {
   const navigate = useNavigate();
-  const handleHome=()=>{
-    navigate('/')
-  }
+  const handleHome = () => {
+    navigate("/");
+  };
+  const handlePortal = () => {
+    navigate("/portalsupport");
+  };
+  const handlePayment = () => {
+    navigate("/paymentinformation");
+  };
+  const handleDocument = () => {
+    navigate("/documentcenter");
+  };
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: "My Account", href: "/myaccount" },
@@ -33,15 +42,39 @@ export default function LoginAndSecurity() {
         <div className="div-7">
           <div className="div-8">
             <div className="div-9">
-              <div className="div-10" style={{cursor:"pointer"}} onClick={handleHome}>Home</div>
+              <div
+                className="div-10"
+                style={{ cursor: "pointer" }}
+                onClick={handleHome}
+              >
+                Home
+              </div>
               <div className="div-11">Submit a Bill </div>
-              <div className="div-12">Document Center</div>
+              <div
+                className="div-12"
+                style={{ cursor: "pointer" }}
+                onClick={handleDocument}
+              >
+                Document Center
+              </div>
               <div className="div-13">Request Liability Certificate</div>
-              <div className="div-14">Portal Support</div>
-              <div className="div-15">Payment Information</div>
+              <div
+                className="div-14"
+                style={{ cursor: "pointer" }}
+                onClick={handlePortal}
+              >
+                Portal Support
+              </div>
+              <div
+                className="div-15"
+                style={{ cursor: "pointer" }}
+                onClick={handlePayment}
+              >
+                Payment Information
+              </div>
             </div>
             <div className="div-16">
-            <SearchInput placeholder="Search"></SearchInput>
+              <SearchInput placeholder="Search"></SearchInput>
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/7f4134542f3a372da03fcb26803131ed8dae2a18bde3b5f4f34321852eb44509?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -54,10 +87,10 @@ export default function LoginAndSecurity() {
               />
             </div>
           </div>
-        </div> 
+        </div>
 
         <div className="div-22">
-        <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="div-24">
             <div className="div-25">
               <div className="column">
@@ -88,28 +121,34 @@ export default function LoginAndSecurity() {
               <div className="column-2">
                 <div className="div-42">
                   <div className="div-43">
-                  <AccordionComponent title="Change Password" defaultExpanded={true}> 
-                  <InputField label="Old Password" inputType="password" />
-                  <InputField label="New Password" inputType="password" />
-                  <InputField label="Re-Enter New Password" inputType="password" />
-                  <div className="div-57">
-                  <div className="feedback">
-                  <PageButton buttonType="primary">Submit</PageButton>
-                  <PageButton buttonType="secondary">Clear</PageButton>
-                  </div>
-                  </div>  
-                  </AccordionComponent>               
+                    <AccordionComponent
+                      title="Change Password"
+                      defaultExpanded={true}
+                    >
+                      <InputField label="Old Password" inputType="password" />
+                      <InputField label="New Password" inputType="password" />
+                      <InputField
+                        label="Re-Enter New Password"
+                        inputType="password"
+                      />
+                      <div className="div-57">
+                        <div className="feedback">
+                          <PageButton buttonType="primary">Submit</PageButton>
+                          <PageButton buttonType="secondary">Clear</PageButton>
+                        </div>
+                      </div>
+                    </AccordionComponent>
                   </div>
                   <div className="div-43">
-                  <AccordionComponent title="Security"> 
-                  Security Content
-                  </AccordionComponent>
+                    <AccordionComponent title="Security">
+                      Security Content
+                    </AccordionComponent>
                   </div>
                   <div className="div-43">
-                  <AccordionComponent title="Change Contact Details"> 
-                  Change Contact Details Content
-                  </AccordionComponent>
-                  </div>            
+                    <AccordionComponent title="Change Contact Details">
+                      Change Contact Details Content
+                    </AccordionComponent>
+                  </div>
                 </div>
               </div>
             </div>
@@ -927,5 +966,3 @@ export default function LoginAndSecurity() {
     </>
   );
 }
-
-
