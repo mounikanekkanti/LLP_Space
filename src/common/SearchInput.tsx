@@ -110,6 +110,8 @@ const SearchInput: React.FC<SearchInputProps> = ({ placeholder }) => {
       input::placeholder {
         color: #000 !important;
       }
+
+      
     `}</style>
     </>
   );

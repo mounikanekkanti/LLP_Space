@@ -6,8 +6,12 @@ import AutoComplete from "../common/AutoComplete";
 import DataTableComponent from "../common/DataTableComponent";
 import DatePickerComponent from "../common/DatePickerComponent";
 import PaymentInfoTabeComponent from "./PaymentInfoTabeComponent";
+import PageButton from "../common/Button";
 
 export default function PaymentInformation() {
+  const onContractIdClick = () =>{
+    
+  }
   const navigate = useNavigate();
   const handlePortal = () => {
     navigate("/portalsupport");
@@ -120,7 +124,7 @@ const newHeadCells: HeadCell[] = [
                 style={{ cursor: "pointer" }}
                 onClick={handlereconciledDate}
               >
-                reconciledDate Center
+                Document Center
               </div>
               <div className="div-13">Request Liability Certificate</div>
               <div
@@ -175,8 +179,8 @@ const newHeadCells: HeadCell[] = [
             </div>
           </div>
           <div className="div-39">
-            <div className="div-40">Submit</div>
-            <div className="div-41">Clear</div>
+          <PageButton buttonType="primary">Submit</PageButton>
+          <PageButton buttonType="secondary">Clear</PageButton>
           </div>
           <div className="div-42">Payment Activity</div>
           <div className="div-43" />
@@ -198,7 +202,8 @@ const newHeadCells: HeadCell[] = [
               </div>
               <div className="div-51" />
               <div className="div-100">
-                <DataTableComponent rows={newData} headCells={newHeadCells} />
+                {/* <DataTableComponent rows={newData} headCells={newHeadCells} onContractIdClick={onContractIdClick}/> */}
+                <PaymentInfoTabeComponent/>
               </div>
             </div>
           </div>
@@ -213,6 +218,15 @@ const newHeadCells: HeadCell[] = [
         </div>
       </div>
       <style>{`
+
+.search .drop-container {
+  max-width: 100%;
+  }
+  .search {
+  width: 450px;
+  margin-top:24px;
+  }
+
         .div {
           background-color: #fff;
           padding-top: 17px;
@@ -1558,10 +1572,10 @@ const newHeadCells: HeadCell[] = [
           text-decoration-line: underline;
           gap: 0px;
         }
-        .search {
-          width: 420px;
-          margin-top: 24px;
-        }
+        // .search {
+        //   width: 420px;
+        //   margin-top: 24px;
+        // }
         .div-100 {
           display: flex;
           width: 100%;
