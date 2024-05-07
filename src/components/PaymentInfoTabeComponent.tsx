@@ -103,7 +103,7 @@ export default function PaymentInfoTableComponent() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={{width:'50px'}}>
+              <TableCell style={{width:'50px', padding:'0'}}>
                 <Checkbox
                   checked={selectAll}
                   onChange={handleSelectAll}
@@ -127,7 +127,7 @@ export default function PaymentInfoTableComponent() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
                 <TableRow key={row.refId}>
-                  <TableCell style={{width:'50px'}}>
+                  <TableCell style={{width:'50px', padding:'0'}}>
                     <Checkbox
                       checked={selected[index] || false}
                       onChange={(event) => handleSelectOne(event, index)}
