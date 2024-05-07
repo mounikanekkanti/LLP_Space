@@ -4,6 +4,9 @@ import SearchInput from "../common/SearchInput";
 import Breadcrumb from "../common/Breadcrumb";
 import AutoComplete from "../common/AutoComplete";
 import DataTableComponent from "../common/DataTableComponent";
+import DatePickerComponent from "../common/DatePickerComponent";
+import PaymentInfoTabeComponent from "./PaymentInfoTabeComponent";
+
 export default function PaymentInformation() {
   const navigate = useNavigate();
   const handlePortal = () => {
@@ -12,8 +15,8 @@ export default function PaymentInformation() {
   const handlePayment = () => {
     navigate("/paymentinformation");
   };
-  const handleDocument = () => {
-    navigate("/documentcenter");
+  const handlereconciledDate = () => {
+    navigate("/reconciledDatecenter");
   };
   const handleHome = () => {
     navigate("/");
@@ -32,60 +35,7 @@ export default function PaymentInformation() {
     { label: "Home", href: "/" },
     { label: "Payment Information" },
   ];
-  const newData = [
   
-    {id:1234, document:'Document_1234', uploadDate:'04/29/2024', uploadedBy:'Williams'},
-    {id:4567, document:'Document_4567', uploadDate:'04/30/2024', uploadedBy:'Johnson'},
-    {id:8901, document:'Document_8901', uploadDate:'05/03/2024', uploadedBy:'Smith'},
-    {id:7901, document:'Document_7901', uploadDate:'05/04/2024', uploadedBy:'Smith'},
-    {id:6901, document:'Document_6901', uploadDate:'05/06/2024', uploadedBy:'Smith'},
-    {id:5901, document:'Document_5901', uploadDate:'05/01/2024', uploadedBy:'Johnson'},
-    {id:4901, document:'Document_4901', uploadDate:'05/02/2024', uploadedBy:'Williams'},
-    // Add more data as needed
-  ];
-  // Define your Data interface
-interface Data {
-  id: number;
-  document: string;
-  uploadDate: string;
-  uploadedBy: string;
-}
-
-// Define HeadCell interface
-interface HeadCell {
-  id: keyof Data; // Use keyof Data to ensure type safety
-  numeric: boolean;
-  disablePadding: boolean;
-  label: string;
-}
-
-const newHeadCells: HeadCell[] = [
-  {
-    id: 'id',
-    numeric: false,
-    disablePadding: false,
-    label: 'Contract ID(#)',
-  },
-  {
-    id: 'document',
-    numeric: false,
-    disablePadding: false,
-    label: 'Document',
-  },
-  {
-    id: 'uploadDate',
-    numeric: false,
-    disablePadding: false,
-    label: 'Upload Date',
-  },
-  {
-    id: 'uploadedBy',
-    numeric: false,
-    disablePadding: false,
-    label: 'Uploaded By',
-  },
-  // Add more head cells for additional columns
-];
   return (
     <>
       <div className="div">
@@ -115,9 +65,9 @@ const newHeadCells: HeadCell[] = [
               <div
                 className="div-12"
                 style={{ cursor: "pointer" }}
-                onClick={handleDocument}
+                onClick={handlereconciledDate}
               >
-                Document Center
+                reconciledDate Center
               </div>
               <div className="div-13">Request Liability Certificate</div>
               <div
@@ -162,28 +112,13 @@ const newHeadCells: HeadCell[] = [
           </div>
           <div className="div-30">
             <div className="div-31">
+            
               <div className="div-32">Start Date</div>
-              <div className="div-33">
-                <div className="div-34">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/08910449416b4de5bf0533621d200707671667ca59bd965fefa84d618623a580?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-6"
-                  />
-                </div>
-              </div>
+              <DatePickerComponent/>
             </div>
             <div className="div-35">
               <div className="div-36">End Date</div>
-              <div className="div-37">
-                <div className="div-38">
-                  <img
-                    loading="lazy"
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/08910449416b4de5bf0533621d200707671667ca59bd965fefa84d618623a580?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                    className="img-7"
-                  />
-                </div>
-              </div>
+              <DatePickerComponent/>
             </div>
           </div>
           <div className="div-39">
@@ -210,7 +145,7 @@ const newHeadCells: HeadCell[] = [
               </div>
               <div className="div-51" />
               <div className="div-100">
-                <DataTableComponent rows={newData} headCells={newHeadCells} />
+                <PaymentInfoTabeComponent/>
               </div>
             </div>
           </div>
