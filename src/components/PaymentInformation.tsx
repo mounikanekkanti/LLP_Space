@@ -19,8 +19,8 @@ export default function PaymentInformation() {
   const handlePayment = () => {
     navigate("/paymentinformation");
   };
-  const handlereconciledDate = () => {
-    navigate("/reconciledDatecenter");
+  const handleDocumentCenter = () => {
+    navigate("/documentcenter");
   };
   const handleHome = () => {
     navigate("/");
@@ -122,7 +122,7 @@ const newHeadCells: HeadCell[] = [
               <div
                 className="div-12"
                 style={{ cursor: "pointer" }}
-                onClick={handlereconciledDate}
+                onClick={handleDocumentCenter}
               >
                 Document Center
               </div>

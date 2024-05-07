@@ -7,17 +7,17 @@ import SearchInput from "../common/SearchInput";
 import PageButton from "../common/Button";
 import DataTableComponent from "../common/DataTableComponent";
 import CardComponent from "../common/Card";
+import MenuComponent from "../common/AccountMenu";
 
 const newData = [
-  
-  {id:1234, document:'Document_1234', uploadDate:'04/29/2024', uploadedBy:'Williams'},
-  {id:4567, document:'Document_4567', uploadDate:'04/30/2024', uploadedBy:'Johnson'},
-  {id:8901, document:'Document_8901', uploadDate:'05/03/2024', uploadedBy:'Smith'},
-  {id:7901, document:'Document_7901', uploadDate:'05/04/2024', uploadedBy:'Smith'},
-  {id:6901, document:'Document_6901', uploadDate:'05/06/2024', uploadedBy:'Smith'},
-  {id:5901, document:'Document_5901', uploadDate:'05/01/2024', uploadedBy:'Johnson'},
-  {id:4901, document:'Document_4901', uploadDate:'05/02/2024', uploadedBy:'Williams'},
-  // Add more data as needed
+
+  { id: 1234, document: 'Document_1234', uploadDate: '04/29/2024', uploadedBy: 'Williams' },
+  { id: 4567, document: 'Document_4567', uploadDate: '04/30/2024', uploadedBy: 'Johnson' },
+  { id: 8901, document: 'Document_8901', uploadDate: '05/03/2024', uploadedBy: 'Smith' },
+  { id: 7901, document: 'Document_7901', uploadDate: '05/04/2024', uploadedBy: 'Smith' },
+  { id: 6901, document: 'Document_6901', uploadDate: '05/06/2024', uploadedBy: 'Smith' },
+  { id: 5901, document: 'Document_5901', uploadDate: '05/01/2024', uploadedBy: 'Johnson' },
+  { id: 4901, document: 'Document_4901', uploadDate: '05/02/2024', uploadedBy: 'Williams' },
 ];
 
 // Define your Data interface
@@ -30,7 +30,7 @@ interface Data {
 
 // Define HeadCell interface
 interface HeadCell {
-  id: keyof Data; // Use keyof Data to ensure type safety
+  id: keyof Data;
   numeric: boolean;
   disablePadding: boolean;
   label: string;
@@ -66,7 +66,6 @@ const newHeadCells: HeadCell[] = [
 
 const LandingPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const navigate = useNavigate();
   const handleClick2 = () => {
@@ -93,19 +92,20 @@ const LandingPage: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const toggleMyAccount = () => {
-    setAccountOpen(!accountOpen);
-  };
-  const handleMyAccount = () => {
-    navigate("/myaccount");
-  };
-  const [searchTerm, setSearchTerm] = React.useState("");
-
-  const handleSearchChange = (value: string) => {
-    setSearchTerm(value);
-  };
   const handleArrowClick = () => {
     console.log("Arrow clicked!");
+  };
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+
+  const toggleMyAccount = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    setOpen(false);
   };
   return (
     <>
@@ -183,22 +183,8 @@ const LandingPage: React.FC = () => {
             <div className="div-224">
               <div className="div-225">Hi John,</div>
               <div className="div-226">Welcome Back!</div>
-            </div>
-            {accountOpen && (
-              <div className="div-227">
-                <div
-                  className="div-228"
-                  style={{ cursor: "pointer" }}
-                  onClick={handleMyAccount}
-                >
-                  My Account
-                </div>
-                <div className="div-229">Options Item</div>
-                <div className="div-230">Options Item</div>
-                <div className="div-231">Options Item</div>
-                <div className="div-232">Options Item</div>
-              </div>
-            )}
+            </div>             
+              <MenuComponent anchorEl={anchorEl} open={open} onClose={handleClose} />
           </div>
           <div className="div-25">
             <div className="div-26">
@@ -270,64 +256,64 @@ const LandingPage: React.FC = () => {
           <div className="div-57" />
         </div>
         <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e28a59819d07087216da4b22c22240734a88e702e45bfad8f516206dc2b1f451?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-              className="img-21"
-            />
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/e28a59819d07087216da4b22c22240734a88e702e45bfad8f516206dc2b1f451?apiKey=a938513dc279413eaac5ce0f8c637f66&"
+          className="img-21"
+        />
         <div className="div-58">
           <div className="div-59">Quick links</div>
           <div className="div-60">
             <div className="div-61">
               <div className="div-62">
-              <CardComponent
-                title="Submit A Bill"
-                description="Reimbursements, Maintenance Repair Bills, Power Bills"
-                imageSrc="/images/Icon1.svg" onArrowClick={handleArrowClick}
-              />
-               <CardComponent
-                title="Request Certificate of Insurance (COI)"
-                description="Insurance Certificate"
-                imageSrc="/images/Icon2.svg" onArrowClick={handleArrowClick}
-              />
-              <CardComponent
-                title="Address Change"
-                description="Notice Address, Payment Address Changes"
-                imageSrc="/images/Icon3.svg" onArrowClick={handleArrowClick}
-              />
+                <CardComponent
+                  title="Submit A Bill"
+                  description="Reimbursements, Maintenance Repair Bills, Power Bills"
+                  imageSrc="/images/Icon1.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Request Certificate of Insurance (COI)"
+                  description="Insurance Certificate"
+                  imageSrc="/images/Icon2.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Address Change"
+                  description="Notice Address, Payment Address Changes"
+                  imageSrc="/images/Icon3.svg" onArrowClick={handleArrowClick}
+                />
               </div>
               <div className="div-62">
-              <CardComponent
-                title="Cell Site Information"
-                description="Tower Information, Site Location"
-                imageSrc="/images/Icon4.svg" onArrowClick={handleArrowClick}
-              />
-               <CardComponent
-                title="Ownership Change"
-                description="Change of Title Ownership"
-                imageSrc="/images/Icon9.svg" onArrowClick={handleArrowClick}
-              />
-              <CardComponent
-                title="Direct Deposits"
-                description="Bank Account Details"
-                imageSrc="/images/Icon5.svg" onArrowClick={handleArrowClick}
-              />
+                <CardComponent
+                  title="Cell Site Information"
+                  description="Tower Information, Site Location"
+                  imageSrc="/images/Icon4.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Ownership Change"
+                  description="Change of Title Ownership"
+                  imageSrc="/images/Icon9.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Direct Deposits"
+                  description="Bank Account Details"
+                  imageSrc="/images/Icon5.svg" onArrowClick={handleArrowClick}
+                />
               </div>
               <div className="div-62">
-              <CardComponent
-                title="Tickets"
-                description="Submit Requests, Tracking Requests"
-                imageSrc="/images/Icon6.svg" onArrowClick={handleArrowClick}
-              />
-               <CardComponent
-                title="Lease Agreement"
-                description="Contract Information, Terms & Conditions"
-                imageSrc="/images/Icon7.svg" onArrowClick={handleArrowClick}
-              />
-              <CardComponent
-                title="Submit Inquiry"
-                description="Invoice, Disputes, Defaults etc."
-                imageSrc="/images/Icon8.svg" onArrowClick={handleArrowClick}
-              />
+                <CardComponent
+                  title="Tickets"
+                  description="Submit Requests, Tracking Requests"
+                  imageSrc="/images/Icon6.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Lease Agreement"
+                  description="Contract Information, Terms & Conditions"
+                  imageSrc="/images/Icon7.svg" onArrowClick={handleArrowClick}
+                />
+                <CardComponent
+                  title="Submit Inquiry"
+                  description="Invoice, Disputes, Defaults etc."
+                  imageSrc="/images/Icon8.svg" onArrowClick={handleArrowClick}
+                />
               </div>
               <div className="div-92">Recent Activity</div>
               <div className="div-93" />
@@ -335,7 +321,7 @@ const LandingPage: React.FC = () => {
               <div className="div-95">
                 <div className="div-96">
                   <SearchInput placeholder="Search"></SearchInput>
-                  </div>
+                </div>
                 <img
                   loading="lazy"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/bd3f71ab2557f3308af5c155de86e555021173a3dd3e15570944286a97b90aea?apiKey=a938513dc279413eaac5ce0f8c637f66&"
@@ -345,114 +331,9 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="div-99" />
-<div className="div-100">
-
-{/* <DataGridComponent/> */}
-{/* <RecentActivityTable/> */}
-
-<DataTableComponent rows={newData} headCells={newHeadCells} onContractIdClick={handleClick}/>
-
-            {/* <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Contract ID(#)</TableCell>
-            <TableCell align="right">Document</TableCell>
-            <TableCell align="right">Upload Date</TableCell>
-            <TableCell align="right">Uploaded By</TableCell>
-            
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          
-            <TableRow>
-              <TableCell scope="row">1234</TableCell>
-              <TableCell align="right">Lorem</TableCell>
-              <TableCell align="right">USA</TableCell>
-              <TableCell align="right">Ipsum</TableCell>
-            </TableRow>
-
-            <TableRow>
-              <TableCell scope="row">4567</TableCell>
-              <TableCell align="right">Lorem</TableCell>
-              <TableCell align="right">USA</TableCell>
-              <TableCell align="right">Ipsum</TableCell>
-            </TableRow>
-          
-        </TableBody>
-      </Table>
-    </TableContainer> */}
-</div>
-          
-
-          {/* <div
-            className="div-100"
-            style={{ cursor: "pointer" }}
-            onClick={handleClick}
-          >
-            <div className="div-101">Contract ID(#)</div>
-            <div className="div-102">Document</div>
-            <div className="div-103">Upload Date</div>
-            <div className="div-104">Uploaded By</div>
+          <div className="div-100">
+            <DataTableComponent rows={newData} headCells={newHeadCells} onContractIdClick={handleClick} />
           </div>
-          <div className="div-105" />
-          <div className="div-106">
-            <div className="div-107">1234</div>
-            <div className="div-108">Lorem</div>
-            <div className="div-109">USA</div>
-            <div className="div-110">Ipsum</div>
-          </div>
-          <div className="div-111" />
-          <div className="div-112">
-            <div className="div-113">4567</div>
-            <div className="div-114">Lorem</div>
-            <div className="div-115">USA</div>
-            <div className="div-116">Ipsum</div>
-          </div>
-          <div className="div-117" />
-          <div className="div-118">
-            <div className="div-119">8901</div>
-            <div className="div-120">Lorem</div>
-            <div className="div-121">USA</div>
-            <div className="div-122">Ipsum</div>
-          </div>
-          <div className="div-123" />
-          <div className="div-124">
-            <div className="div-125">
-              <div className="div-126">
-                <img
-                  loading="lazy"
-                  srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/74c712806bd237a72e29e982ecaab58e8313165463e39ecbd26edc0297c0efce?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                  className="img-22"
-                />
-                <div className="div-127">
-                  <div className="div-128" />
-                </div>
-              </div>
-              <div className="div-129">Displaying 3 of 3 Rows</div>
-            </div>
-            <div className="div-130">
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/bdfb000c064b848ad68a8c92b8ce38a119c653e0bba4a3dda08d45d0080b5052?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-23"
-              />
-              <div className="div-131">1</div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/16156d7e76a02e070103401a5705c4bb09aa007b0c6e5463e1f6b704fb3d9e11?apiKey=a938513dc279413eaac5ce0f8c637f66&"
-                className="img-24"
-              />
-            </div>
-            <div className="div-132">
-              <div className="div-133">Go to:</div>
-              <div className="div-134">1</div>
-              <div className="div-135">
-                <div className="div-136">/</div>
-                <div className="div-137">1</div>
-              </div>
-            </div>
-          </div> */}
           <div className="feedback" onClick={handleClick2}>
             <PageButton buttonType="primary">Feedback</PageButton>
           </div>

@@ -16,41 +16,8 @@ import LoginAndSecurity from "./components/LoginAndSecurity";
 import MyAccount from "./components/MyAccount";
 import TransactionDetails from "./components/TransactionDetailsmodel";
 import TransactionHistory from "./components/TransactionHistory";
-import SearchInput from "./common/SearchInput";
-import PageButton from "./common/Button";
-import InputField from "./common/TextField";
-import Breadcrumb from "./common/Breadcrumb";
-import AutoComplete from "./common/AutoComplete";
-import AccordionComponent from "./common/Accordion";
-import CardComponent from "./common/Card";
 
 function App() {
-  const breadcrumbItems = [
-    { label: "Home", href: "/" },
-    { label: "My Account", href: "/account" },
-    { label: "Login & Security" },
-  ];
-  const [selectedValue, setSelectedValue] = React.useState("");
-  const options = [
-    { value: "1", label: "Option 1" },
-    { value: "2", label: "Option 2" },
-    { value: "3", label: "Option 3" },
-  ];
-
-  const handleChange = (event: any) => {
-    setSelectedValue(event.target.value);
-  };
-  const securityHeaderData = {
-    title: "Security",
-    content: (
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </p>
-      </div>
-    ),
-  };
 
   return (
     <div className="App">
@@ -80,41 +47,6 @@ function App() {
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/transactiondetails" element={<TransactionDetails />} />
           <Route path="/transactionhistory" element={<TransactionHistory />} />
-          <Route
-            path="/searchinput"
-            element={<SearchInput placeholder="Search" />}
-          />
-          <Route
-            path="/button"
-            element={<PageButton buttonType="secondary">Feedback</PageButton>}
-          />
-          <Route
-            path="/input"
-            element={<InputField label="Password" inputType="password" />}
-          />
-          <Route
-            path="/breadcrumb"
-            element={<Breadcrumb items={breadcrumbItems} />}
-          />
-          <Route
-            path="/autocomplete"
-            element={
-              <AutoComplete
-                options={options}
-                onChange={handleChange}
-                value={selectedValue}
-                label="Please select the Contract ID"
-              />
-            }
-          />
-          <Route
-            path="/accordion"
-            element={
-              <AccordionComponent title="Accordion 1">
-                <InputField label="Password" inputType="text" />
-              </AccordionComponent>
-            }
-          />
         </Routes>
       </Router>
     </div>
