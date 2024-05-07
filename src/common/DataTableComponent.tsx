@@ -139,7 +139,7 @@ const DataTableComponent: React.FC<EnhancedTableProps> = ({ rows, headCells, onC
           <TableBody>
             {visibleRows.map((row) => (
               <TableRow hover key={row.id} sx={{ cursor: 'pointer' }}>
-                <TableCell onClick={() => onContractIdClick()}>{row.id}</TableCell>
+                <TableCell onClick={() => onContractIdClick()} style={{color: "#1976d2",textDecoration:"underline"}}>{row.id}</TableCell>
                 <TableCell>{row.document}</TableCell>
                 <TableCell>{row.uploadDate}</TableCell>
                 <TableCell>{row.uploadedBy}</TableCell>
